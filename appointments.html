@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request an Appointment | EvenKeel Podiatry | Brookline, MA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1f2d;
+    --navy-mid: #1a3347;
+    --teal: #2a7f7f;
+    --teal-light: #3a9e9e;
+    --teal-pale: #e8f5f5;
+    --sand: #f5f0e8;
+    --stone: #8a9ba8;
+    --text: #1a2a35;
+    --muted: #5a7080;
+    --white: #ffffff;
+    --border: #d8e4ea;
+    --red: #c00000;
+    --red-light: #d42020;
+    --red-pale: #fdf0f0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13, 31, 45, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 68px;
+  }
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem; color: var(--white);
+    text-decoration: none; letter-spacing: 0.01em;
+    display: flex; align-items: baseline; gap: 0;
+  }
+  .nav-logo-brand {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400; font-size: 1.25rem;
+    color: var(--white); letter-spacing: 0.04em;
+  }
+  .nav-logo-suffix {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300; font-size: 0.7rem;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+    margin-left: 0.4rem; text-transform: uppercase;
+    align-self: center;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72); text-decoration: none;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--teal); color: var(--white) !important;
+    padding: 0.5rem 1.25rem; border-radius: 4px;
+    font-weight: 600 !important; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; }
+  .nav-active { color: var(--white) !important; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--navy);
+    padding: 9rem 2rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-header-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .page-header-inner {
+    max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .page-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--red-light); font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .page-eyebrow::before {
+    content: ''; display: block; width: 28px; height: 1px;
+    background: var(--red-light);
+  }
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .page-header-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem; font-weight: 300;
+    max-width: 520px; line-height: 1.7;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .appt-section {
+    padding: 5rem 2rem 6rem;
+    background: var(--white);
+  }
+  .appt-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.3fr;
+    gap: 5rem; align-items: start;
+  }
+
+  /* ── LEFT: INFO ── */
+  .appt-info { position: sticky; top: 100px; }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 0.75rem;
+  }
+  .appt-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .appt-info-desc {
+    font-size: 0.95rem; color: var(--muted);
+    line-height: 1.75; font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  .phone-block {
+    background: var(--navy);
+    border-radius: 8px; padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .phone-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 0.5rem;
+  }
+  .phone-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem; color: var(--white);
+    text-decoration: none; display: block;
+    transition: color 0.2s;
+  }
+  .phone-number:hover { color: var(--teal-light); }
+  .phone-hours {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    margin-top: 0.4rem; line-height: 1.5;
+  }
+  .info-rows { display: flex; flex-direction: column; gap: 1rem; }
+  .info-row {
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border); border-radius: 8px;
+    background: var(--white);
+  }
+  .info-row-icon {
+    width: 36px; height: 36px; background: var(--teal-pale);
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .info-row-icon svg { width: 16px; height: 16px; stroke: var(--teal); }
+  .info-row-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--stone); margin-bottom: 0.15rem;
+  }
+  .info-row-value { font-size: 0.875rem; color: var(--text); line-height: 1.55; }
+  .info-row-value a { color: var(--teal); text-decoration: none; }
+  .emergency-note {
+    margin-top: 1.5rem;
+    background: var(--red-pale); border: 1px solid rgba(192,0,0,0.15);
+    border-radius: 8px; padding: 1rem 1.25rem;
+    font-size: 0.825rem; color: var(--red); line-height: 1.55;
+  }
+  .emergency-note strong { font-weight: 600; }
+
+  /* ── RIGHT: FORM ── */
+  .appt-form-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2.5rem;
+    box-shadow: 0 4px 32px rgba(13,31,45,0.06);
+  }
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .form-subtitle {
+    font-size: 0.85rem; color: var(--muted);
+    margin-bottom: 2rem; line-height: 1.55;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  input, select, textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 0.7rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%; outline: none;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(42,127,127,0.12);
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9ba8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+  textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+  .form-divider {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--stone);
+    margin: 0.5rem 0 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .form-divider::before, .form-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .form-confirm-note {
+    background: var(--teal-pale); border: 1px solid rgba(42,127,127,0.2);
+    border-radius: 6px; padding: 0.9rem 1.1rem;
+    font-size: 0.82rem; color: var(--teal); line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+  .form-confirm-note strong { font-weight: 600; }
+  .btn-submit {
+    width: 100%;
+    background: var(--teal); color: var(--white);
+    padding: 0.95rem 2rem; border-radius: 6px;
+    border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-submit:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-submit:active { transform: translateY(0); }
+  .form-legal {
+    font-size: 0.75rem; color: var(--stone);
+    text-align: center; margin-top: 1rem; line-height: 1.5;
+  }
+
+  /* ── PAYMENT INFO BAND ── */
+  .payment-band {
+    background: var(--sand);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+  .payment-band-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .payment-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .payment-icon {
+    width: 42px; height: 42px; background: var(--white);
+    border: 1px solid var(--border); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .payment-icon svg { width: 20px; height: 20px; stroke: var(--teal); }
+  .payment-item-title { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.2rem; }
+  .payment-item-desc { font-size: 0.825rem; color: var(--muted); line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 2rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .footer-brand-name .suffix {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300; font-size: 0.65rem;
+    color: rgba(255,255,255,0.45); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+  .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ── SUCCESS STATE ── */
+  .form-success {
+    display: none;
+    text-align: center; padding: 3rem 2rem;
+  }
+  .form-success-icon {
+    width: 64px; height: 64px; background: var(--teal-pale);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 1.5rem;
+  }
+  .form-success-icon svg { width: 28px; height: 28px; stroke: var(--teal); }
+  .form-success h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem;
+  }
+  .form-success p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .appt-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .appt-info { position: static; }
+    .payment-band-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .appt-form-wrap { padding: 1.75rem; }
+    .page-header { padding: 8rem 1.5rem 4rem; }
+  }
+
+  /* ── ANIMATION ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .page-header-inner > * {
+    animation: fadeUp 0.65s ease both;
+  }
+  .page-eyebrow { animation-delay: 0.1s; }
+  .page-header h1 { animation-delay: 0.2s; }
+  .page-header-sub { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">evenkeel</span>
+      <span class="nav-logo-suffix">Podiatry</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#orthotics">Orthotics</a></li>
+      <li><a href="index.html#doctor">Dr. Santopietro</a></li>
+      <li><a href="index.html#testimonials">Reviews</a></li>
+      <li><a href="index.html#location">Location</a></li>
+      <li><a href="appointments.html" class="nav-cta nav-active">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid-bg"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow">EvenKeel Podiatry · Brookline, MA</div>
+    <h1>Request an Appointment</h1>
+    <p class="page-header-sub">We see patients Tuesday through Thursday. Fill out the form below and we'll be in touch — or call us directly for the fastest response.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="appt-section">
+  <div class="appt-inner">
+
+    <!-- LEFT: INFO -->
+    <div class="appt-info">
+      <div class="section-eyebrow">Contact Us</div>
+      <h2>The Fastest Way to Book</h2>
+      <p class="appt-info-desc">Give us a call during office hours for same-week scheduling. For less urgent requests, fill in the form and we'll confirm your preferred time.</p>
+
+      <div class="phone-block">
+        <div class="phone-label">Call to Book</div>
+        <a href="tel:6177340003" class="phone-number">617.734.0003</a>
+        <div class="phone-hours">Tuesday – Thursday &nbsp;·&nbsp; 8:30 AM – 5:00 PM</div>
+      </div>
+
+      <div class="info-rows">
+        <div class="info-row">
+          <div class="info-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div>
+            <div class="info-row-label">Office Hours</div>
+            <div class="info-row-value">Tuesday, Wednesday &amp; Thursday<br>8:30 AM – 5:00 PM</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="info-row-label">Location</div>
+            <div class="info-row-value">1180 Beacon St, Suite 4D<br>Brookline, MA 02446<br><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get directions →</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="info-row-label">What to Expect</div>
+            <div class="info-row-value">After submitting this form, we will call you to confirm your appointment. Your spot is not reserved until that call is complete.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emergency-note">
+        <strong>Next-day or urgent appointments:</strong> Please call us directly at 617.734.0003. Online requests are not monitored for same-day needs.
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="appt-form-wrap">
+      <div class="form-title">Appointment Request</div>
+      <div class="form-subtitle">Please provide your contact information and preferences. We'll call to confirm.</div>
+
+      <form id="apptForm" novalidate>
+        <div class="section-eyebrow" style="margin-bottom:1rem;">Your Information</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="617-555-0100" required>
+          </div>
+        </div>
+
+        <div class="form-divider">Scheduling Preferences</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prefDay">Preferred Day</label>
+            <select id="prefDay" name="prefDay">
+              <option value="">No preference</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prefTime">Preferred Time</label>
+            <select id="prefTime" name="prefTime">
+              <option value="">No preference</option>
+              <option value="morning">Morning (8:00 – 9:30 AM)</option>
+              <option value="mid-morning">Mid-Morning (10:00 – 11:30 AM)</option>
+              <option value="early-afternoon">Early Afternoon (12:00 – 1:30 PM)</option>
+              <option value="afternoon">Afternoon (2:00 – 3:30 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Visit</label>
+          <textarea id="reason" name="reason" placeholder="Briefly describe your concern or what you'd like addressed (optional)"></textarea>
+        </div>
+
+        <div class="form-confirm-note">
+          <strong>Important:</strong> Submitting this form is a request only — not a confirmed appointment. We will call you to confirm your time slot before your visit is scheduled.
+        </div>
+
+        <button type="submit" class="btn-submit">Send Appointment Request →</button>
+        <p class="form-legal">Your information is kept private and used only to schedule your visit.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Request Received</h3>
+        <p>Thank you — we'll call you during office hours (Tues – Thurs, 8:30 AM – 5:00 PM) to confirm your appointment.<br><br>For urgent needs, call us directly at <a href="tel:6177340003" style="color:var(--teal);text-decoration:none;font-weight:600;">617.734.0003</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAYMENT INFO BAND -->
+<div class="payment-band">
+  <div class="payment-band-inner">
+    <div class="payment-item">
+      <div class="payment-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <div>
+        <div class="payment-item-title">Direct Pay Practice</div>
+        <div class="payment-item-desc">We do not bill insurance for custom orthotics. Patients pay directly and sign a payment agreement prior to treatment.</div>
+      </div>
+    </div>
+    <div class="payment-item">
+      <div class="payment-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <div class="payment-item-title">HSA &amp; FSA Accepted</div>
+        <div class="payment-item-desc">Health Savings Accounts and Flexible Spending Accounts are welcome forms of payment for all services.</div>
+      </div>
+    </div>
+    <div class="payment-item">
+      <div class="payment-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+      </div>
+      <div>
+        <div class="payment-item-title">Transparent Pricing</div>
+        <div class="payment-item-desc">We're happy to discuss costs before your appointment so there are no surprises. Call us with any billing questions.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+      <p class="footer-desc">Experts in sports medicine and custom orthotics serving Greater Boston since 1974. Dr. Frank J. Santopietro, D.P.M.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="index.html#orthotics">Custom Orthotics</a></li>
+        <li><a href="index.html#services">Sports Medicine</a></li>
+        <li><a href="index.html#services">Diabetic Foot Care</a></li>
+        <li><a href="index.html#services">Pediatric Podiatry</a></li>
+        <li><a href="index.html#services">Surgical Options</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice</div>
+      <ul class="footer-links">
+        <li><a href="index.html#doctor">About Dr. Santopietro</a></li>
+        <li><a href="index.html#services">Our Process</a></li>
+        <li><a href="index.html#testimonials">Patient Testimonials</a></li>
+        <li><a href="#">News &amp; Resources</a></li>
+        <li><a href="#">Patient Portal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:6177340003">617.734.0003</a></li>
+        <li><a href="mailto:info@evenkeelpodiatry.com">info@evenkeelpodiatry.com</a></li>
+        <li><a href="appointments.html">Request Appointment</a></li>
+        <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-bottom">
+      <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+      <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('apptForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(function(field) {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--red)';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
