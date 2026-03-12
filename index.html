@@ -499,6 +499,55 @@
   .location-value { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
   .location-value a { color: var(--teal); text-decoration: none; }
 
+  /* ── ECOSYSTEM BAND ── */
+  .ecosystem {
+    background: var(--navy);
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .ecosystem-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .ecosystem-card {
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 10px; padding: 2rem 2.25rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .ecosystem-card:hover {
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.03);
+  }
+  .ecosystem-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .ecosystem-tag-insoles { color: var(--teal-light); }
+  .ecosystem-tag-pro { color: var(--red-light); }
+  .ecosystem-tag::before {
+    content: ''; display: block; width: 20px; height: 1px;
+  }
+  .ecosystem-tag-insoles::before { background: var(--teal-light); }
+  .ecosystem-tag-pro::before { background: var(--red-light); }
+  .ecosystem-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--white); line-height: 1.25;
+  }
+  .ecosystem-card p {
+    font-size: 0.875rem; color: rgba(255,255,255,0.5);
+    line-height: 1.7; font-weight: 300;
+  }
+  .ecosystem-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+    margin-top: auto;
+  }
+  .ecosystem-link-insoles { color: var(--teal-light); }
+  .ecosystem-link-pro { color: var(--red-light); }
+
   /* ── FOOTER ── */
   footer {
     background: var(--navy);
@@ -602,6 +651,7 @@
     .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
     .location-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .ecosystem-inner { grid-template-columns: 1fr; }
   }
 
   /* ── RESPONSIVE: MOBILE (≤700px) ── */
@@ -1017,7 +1067,7 @@
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Dr. Santopietro's skills honestly changed my youngest son's life. His expertise made many physical things possible for Kyle that would not have been otherwise — opportunities that brought him happiness and real confidence."</p>
-        <div class="testimonial-author">Amy Duke</div>
+        <div class="testimonial-author">Amy D</div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
@@ -1045,10 +1095,17 @@
     <div class="section-eyebrow">Find Us</div>
     <h2 class="section-title">Conveniently Located in Brookline</h2>
     <div class="location-grid" style="margin-top:3rem;">
-      <div class="location-map-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2a7f7f" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        <span>1180 Beacon St, Brookline, MA 02446</span>
-        <a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank" style="color:var(--teal); font-size:0.8rem; text-decoration:none; font-weight:600; margin-top:0.5rem;">Open in Google Maps →</a>
+      <div>
+        <div style="border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:1rem;">
+          <img src="https://evenkeelpodiatry.com/wp-content/uploads/2014/08/evenkeel_location_featuredimage-e1407794975217.jpg"
+               alt="EvenKeel Podiatry building at 1180 Beacon Street, Brookline"
+               style="width:100%; display:block; object-fit:cover;">
+        </div>
+        <a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank"
+           style="display:inline-flex; align-items:center; gap:0.4rem; color:var(--teal); font-size:0.825rem; text-decoration:none; font-weight:600;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Open in Google Maps →
+        </a>
       </div>
       <div class="location-details">
         <div class="location-row">
@@ -1057,7 +1114,9 @@
           </div>
           <div>
             <div class="location-label">Address</div>
-            <div class="location-value">1180 Beacon St, Suite 4D<br>Brookline, MA 02446</div>
+            <div class="location-value">1180 Beacon St, Suite 4D<br>Brookline, MA 02446<br>
+              <span style="font-size:0.8rem; color:var(--stone);">At the intersection of Beacon, Kent &amp; Powell Streets</span>
+            </div>
           </div>
         </div>
         <div class="location-row">
@@ -1067,15 +1126,6 @@
           <div>
             <div class="location-label">Phone</div>
             <div class="location-value"><a href="tel:6177340003">617.734.0003</a></div>
-          </div>
-        </div>
-        <div class="location-row">
-          <div class="location-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div class="location-label">Email</div>
-            <div class="location-value"><a href="/cdn-cgi/l/email-protection#89e0e7efe6c9ecffece7e2ecece5f9e6ede0e8fdfbf0a7eae6e4"><span class="__cf_email__" data-cfemail="771e19111837120112191c12121b0718131e1603050e5914181a">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="location-row">
@@ -1092,12 +1142,26 @@
         </div>
         <div class="location-row">
           <div class="location-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="location-label">Public Transit</div>
+            <div class="location-value">
+              Green Line (C Train) to <strong>Kent Street</strong> stop.<br>
+              Bus 66 or 65 — transfer to C train at Beacon St.<br>
+              <a href="https://www.mbta.com" target="_blank" rel="noopener" style="color:var(--teal); font-size:0.8rem;">MBTA schedules →</a>
+            </div>
+          </div>
+        </div>
+        <div class="location-row">
+          <div class="location-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <div>
-            <div class="location-label">Getting Here</div>
+            <div class="location-label">Parking</div>
             <div class="location-value">
-              Near Coolidge Corner on the Green Line (C Branch). Street parking available on Beacon St and surrounding streets.
+              Metered parking on both sides of Beacon St. Additional 2-hour parking on streets behind the building.<br>
+              <span style="color:var(--red); font-weight:600; font-size:0.825rem;">⚠ Do not park in the lot behind the building — you will be towed.</span>
             </div>
           </div>
         </div>
@@ -1105,6 +1169,27 @@
     </div>
   </div>
 </section>
+
+<!-- ECOSYSTEM -->
+<div class="ecosystem">
+  <div class="ecosystem-inner">
+
+    <a href="https://evenkeelinsoles.com" target="_blank" rel="noopener" class="ecosystem-card">
+      <div class="ecosystem-tag ecosystem-tag-insoles">EvenKeel Insoles</div>
+      <h3>Can't Make It to Brookline?<br>There's Another Option.</h3>
+      <p>The EvenKeel performance orthotic insole brings the same biomechanical philosophy to a ready-to-use format — ideal for patients outside the Greater Boston area or those looking for a first step toward better foot health.</p>
+      <span class="ecosystem-link ecosystem-link-insoles">Shop EvenKeel Insoles at evenkeelinsoles.com →</span>
+    </a>
+
+    <a href="https://evenkeelpro.com" target="_blank" rel="noopener" class="ecosystem-card">
+      <div class="ecosystem-tag ecosystem-tag-pro">For Healthcare Providers</div>
+      <h3>Bring EvenKeel Orthotics<br>to Your Practice.</h3>
+      <p>Are you a podiatrist, physical therapist, or sports medicine provider? EvenKeel Pro offers a turn-key orthotic solution — an app-driven process built on 50 years of clinical expertise, designed to deliver superior outcomes for your patients.</p>
+      <span class="ecosystem-link ecosystem-link-pro">Learn about becoming a provider at evenkeelpro.com →</span>
+    </a>
+
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1130,7 +1215,7 @@
         <li><a href="#">Our Process</a></li>
         <li><a href="#">Patient Testimonials</a></li>
         <li><a href="#">News & Resources</a></li>
-        <li><a href="#">Patient Portal</a></li>
+        <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
       </ul>
     </div>
     <div>
