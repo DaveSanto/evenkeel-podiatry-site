@@ -547,12 +547,101 @@
   .hero-sub { animation-delay: 0.34s; }
   .hero-actions { animation-delay: 0.46s; }
   .hero-stats { animation-delay: 0.58s; }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    padding: 0.4rem; color: var(--white);
+    flex-shrink: 0;
+  }
+  .nav-hamburger svg { display: block; transition: opacity 0.2s; }
+
+  /* ── MOBILE MENU ── */
+  .nav-mobile {
+    display: none;
+    position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+    background: rgba(13,31,45,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem 1.5rem 1.5rem;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+  .nav-mobile li a {
+    display: block;
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 1rem; font-weight: 500;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+  .nav-mobile li:last-child a { border-bottom: none; }
+  .nav-mobile li a:hover { color: var(--white); }
+  .nav-mobile .nav-cta {
+    margin-top: 1rem;
+    background: var(--teal); color: var(--white) !important;
+    text-align: center; border-radius: 4px;
+    padding: 0.9rem !important; font-weight: 600 !important;
+    border-bottom: none !important; display: block;
+  }
+  .nav-mobile .nav-cta:hover { background: var(--teal-light) !important; }
+
+  /* ── RESPONSIVE: TABLET (≤1024px) ── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 9rem 2rem 5rem 2rem; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+    .process-steps::before { display: none; }
+    .orthotics-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .doctor-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .doctor-img-wrap { aspect-ratio: 16/9; max-width: 480px; }
+    .image-strip { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+
+  /* ── RESPONSIVE: MOBILE (≤700px) ── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+
+    section { padding: 4rem 1.25rem; }
+    .hero-left { padding: 7rem 1.25rem 3.5rem 1.25rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 2rem; }
+    .process-step { padding: 0; }
+
+    .orthotics-cta-block { text-align: center; }
+
+    .doctor-img-wrap { max-width: 100%; aspect-ratio: 16/9; }
+    .doctor-credentials { justify-content: flex-start; }
+
+    .image-strip { grid-template-columns: 1fr 1fr; height: 180px; }
+
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .cta-band-inner { flex-direction: column; text-align: center; }
+    .cta-band-inner .btn-white { align-self: center; }
+
+    .location-map-placeholder { height: 220px; }
+
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom {
+      flex-direction: column; gap: 0.4rem; text-align: center;
+    }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="mainNav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <span class="nav-logo-brand">evenkeel</span>
@@ -566,8 +655,22 @@
       <li><a href="#location">Location</a></li>
       <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile" id="mobileMenu">
+  <ul>
+    <li><a href="#services" class="mobile-link">Services</a></li>
+    <li><a href="#orthotics" class="mobile-link">Orthotics</a></li>
+    <li><a href="#doctor" class="mobile-link">Dr. Santopietro</a></li>
+    <li><a href="#testimonials" class="mobile-link">Reviews</a></li>
+    <li><a href="#location" class="mobile-link">Location</a></li>
+    <li><a href="#appointment" class="nav-cta mobile-link">Book Appointment</a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1035,6 +1138,45 @@
       <ul class="footer-links">
         <li><a href="tel:6177340003">617.734.0003</a></li>
         <li><a href="/cdn-cgi/l/email-protection#e68f888089a6839083888d83838a9689828f8792949fc885898b"><span class="__cf_email__" data-cfemail="a5cccbc3cae5c0d3c0cbcec0c0c9d5cac1ccc4d1d7dc8bc6cac8">[email&#160;protected]</span></a></li>
-        <li><a href="#">Request Appointment</a></li>
-        <li><a href="#">Get Directions</a></li>
-        <li><
+        <li><a href="appointments.html">Request Appointment</a></li>
+        <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-bottom">
+      <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+      <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('iconOpen');
+    var iconClose = document.getElementById('iconClose');
+    var links = menu.querySelectorAll('.mobile-link');
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      iconOpen.style.display = '';
+      iconClose.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      iconOpen.style.display = isOpen ? 'none' : '';
+      iconClose.style.display = isOpen ? '' : 'none';
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    links.forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -362,7 +362,44 @@
   }
   .form-success p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
 
-  /* ── RESPONSIVE ── */
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    padding: 0.4rem; color: var(--white); flex-shrink: 0;
+  }
+  .nav-hamburger svg { display: block; }
+
+  /* ── MOBILE MENU ── */
+  .nav-mobile {
+    display: none;
+    position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+    background: rgba(13,31,45,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem 1.5rem 1.5rem;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+  .nav-mobile li a {
+    display: block;
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 1rem; font-weight: 500;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+  .nav-mobile li:last-child a { border-bottom: none; }
+  .nav-mobile li a:hover { color: var(--white); }
+  .nav-mobile .nav-cta {
+    margin-top: 1rem;
+    background: var(--teal); color: var(--white) !important;
+    text-align: center; border-radius: 4px;
+    padding: 0.9rem !important; font-weight: 600 !important;
+    border-bottom: none !important; display: block;
+  }
+
+  /* ── RESPONSIVE: TABLET (≤900px) ── */
   @media (max-width: 900px) {
     .appt-inner { grid-template-columns: 1fr; gap: 3rem; }
     .appt-info { position: static; }
@@ -370,11 +407,20 @@
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
   }
-  @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; }
+
+  /* ── RESPONSIVE: MOBILE (≤700px) ── */
+  @media (max-width: 700px) {
     .nav-links { display: none; }
-    .appt-form-wrap { padding: 1.75rem; }
-    .page-header { padding: 8rem 1.5rem 4rem; }
+    .nav-hamburger { display: block; }
+
+    .page-header { padding: 8rem 1.25rem 3.5rem; }
+    .appt-section { padding: 3rem 1.25rem 4rem; }
+    .appt-form-wrap { padding: 1.5rem; }
+    .phone-block { padding: 1.25rem 1.5rem; }
+    .payment-band { padding: 2rem 1.25rem; }
+
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
   }
 
   /* ── ANIMATION ── */
@@ -393,7 +439,7 @@
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="mainNav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
       <span class="nav-logo-brand">evenkeel</span>
@@ -407,8 +453,22 @@
       <li><a href="index.html#location">Location</a></li>
       <li><a href="appointments.html" class="nav-cta nav-active">Book Appointment</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile" id="mobileMenu">
+  <ul>
+    <li><a href="index.html#services" class="mobile-link">Services</a></li>
+    <li><a href="index.html#orthotics" class="mobile-link">Orthotics</a></li>
+    <li><a href="index.html#doctor" class="mobile-link">Dr. Santopietro</a></li>
+    <li><a href="index.html#testimonials" class="mobile-link">Reviews</a></li>
+    <li><a href="index.html#location" class="mobile-link">Location</a></li>
+    <li><a href="appointments.html" class="nav-cta mobile-link">Book Appointment</a></li>
+  </ul>
+</div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -643,6 +703,32 @@
     this.style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   });
+
+  (function() {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('iconOpen');
+    var iconClose = document.getElementById('iconClose');
+    var links = menu.querySelectorAll('.mobile-link');
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      iconOpen.style.display = '';
+      iconClose.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      iconOpen.style.display = isOpen ? 'none' : '';
+      iconClose.style.display = isOpen ? '' : 'none';
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    links.forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
 </script>
 
 </body>
