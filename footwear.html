@@ -284,9 +284,38 @@
   }
   .featured-shoe-inner {
     max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem;
-    align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: start;
   }
+  .featured-shoe-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .featured-shoe-variant {
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .featured-shoe-variant a {
+    display: block; border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: border-color 0.2s;
+  }
+  .featured-shoe-variant a:hover { border-color: rgba(255,255,255,0.35); }
+  .featured-shoe-variant img {
+    width: 100%; display: block;
+    background: rgba(255,255,255,0.05);
+    padding: 0.75rem; object-fit: contain;
+    max-height: 180px;
+  }
+  .featured-shoe-variant-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.7); text-align: center;
+  }
+  .featured-shoe-variant-link {
+    font-size: 0.75rem; color: var(--teal-light);
+    text-align: center; text-decoration: none;
+    display: block; transition: color 0.2s;
+  }
+  .featured-shoe-variant-link:hover { color: var(--white); }
   .featured-shoe-label {
     font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
     text-transform: uppercase; color: rgba(255,255,255,0.55);
@@ -690,10 +719,25 @@
       <div class="featured-shoe-label">A Shoe We Often Recommend</div>
       <h2>Brooks Addiction GTS</h2>
       <p class="featured-shoe-sub">Maximum motion control · Multiple widths available</p>
-      <img class="featured-shoe-img" src="images/Brooks_addiction-gts-15-mens.avif" alt="Brooks Addiction GTS men's running shoe" />
+      <p class="featured-shoe-desc" style="margin-top:1.25rem;">The Brooks Addiction GTS checks nearly every box on the list above. It delivers maximum support through a combination of stability technologies, comes in multiple widths, and has enough interior volume to accommodate a full custom orthotic comfortably. It is not the only shoe that works — but it is a reliable starting point for patients who aren't sure where to begin.</p>
     </div>
     <div>
-      <p class="featured-shoe-desc">The Brooks Addiction GTS checks nearly every box on the list above. It delivers maximum support through a combination of stability technologies, comes in multiple widths, and has enough interior volume to accommodate a full custom orthotic comfortably. It is not the only shoe that works — but it is a reliable starting point for patients who aren't sure where to begin.</p>
+      <div class="featured-shoe-pair">
+        <div class="featured-shoe-variant">
+          <a href="https://www.brooksrunning.com/en_us/mens/shoes/road-running-shoes/addiction-gts-15/110365.html?dwvar_110365_color=072" target="_blank" rel="noopener">
+            <img src="images/Brooks_addiction-gts-15-mens.avif" alt="Brooks Addiction GTS 15 men's" />
+          </a>
+          <div class="featured-shoe-variant-label">Men's</div>
+          <a class="featured-shoe-variant-link" href="https://www.brooksrunning.com/en_us/mens/shoes/road-running-shoes/addiction-gts-15/110365.html?dwvar_110365_color=072" target="_blank" rel="noopener">Shop at Brooks →</a>
+        </div>
+        <div class="featured-shoe-variant">
+          <a href="https://www.brooksrunning.com/en_us/womens/shoes/road-running-shoes/addiction-gts-15/1203521B054.110.html" target="_blank" rel="noopener">
+            <img src="images/Brooks_addiction-gts-15-womens-supportive-running-shoe.avif" alt="Brooks Addiction GTS 15 women's" />
+          </a>
+          <div class="featured-shoe-variant-label">Women's</div>
+          <a class="featured-shoe-variant-link" href="https://www.brooksrunning.com/en_us/womens/shoes/road-running-shoes/addiction-gts-15/1203521B054.110.html" target="_blank" rel="noopener">Shop at Brooks →</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
