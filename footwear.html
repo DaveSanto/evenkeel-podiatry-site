@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recommended Footwear | EvenKeel Podiatry | Brookline, MA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1f2d;
+    --navy-mid: #1a3347;
+    --teal: #2a7f7f;
+    --teal-light: #3a9e9e;
+    --teal-pale: #e8f5f5;
+    --sand: #f5f0e8;
+    --stone: #8a9ba8;
+    --text: #1a2a35;
+    --muted: #5a7080;
+    --white: #ffffff;
+    --border: #d8e4ea;
+    --red: #c00000;
+    --red-light: #d42020;
+    --red-pale: #fdf0f0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13, 31, 45, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 68px;
+  }
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem; color: var(--white);
+    text-decoration: none; letter-spacing: 0.01em;
+    display: flex; align-items: baseline; gap: 0;
+  }
+  .nav-logo-brand {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400; font-size: 1.25rem;
+    color: var(--white); letter-spacing: 0.04em;
+  }
+  .nav-logo-suffix {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300; font-size: 0.7rem;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+    margin-left: 0.4rem; text-transform: uppercase;
+    align-self: center;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72); text-decoration: none;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--teal); color: var(--white) !important;
+    padding: 0.5rem 1.25rem; border-radius: 4px;
+    font-weight: 600 !important; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; }
+  .nav-active { color: var(--white) !important; }
+  .nav-hamburger {
+    display: none; background: none; border: none;
+    color: var(--white); cursor: pointer; padding: 0.25rem;
+  }
+
+  /* ── MOBILE NAV ── */
+  .nav-mobile {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    background: rgba(13,31,45,0.98); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 99; padding: 1rem 0;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+  .nav-mobile a {
+    display: block; padding: 0.8rem 2rem;
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.95rem; font-weight: 500;
+  }
+  .nav-mobile a:hover { color: var(--white); }
+  .nav-mobile .nav-cta {
+    margin: 0.5rem 2rem 0; display: block;
+    border-radius: 4px; text-align: center;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--navy);
+    padding: 9rem 2rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-header-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .page-header-inner {
+    max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .page-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--teal-light); font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .page-eyebrow::before {
+    content: ''; display: block; width: 28px; height: 1px;
+    background: var(--teal-light);
+  }
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .page-header-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem; font-weight: 300;
+    max-width: 560px; line-height: 1.7;
+  }
+
+  /* ── SHARED SECTION ── */
+  .section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-lead {
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.8; font-weight: 300;
+    max-width: 680px; margin-bottom: 3rem;
+  }
+
+  /* ── INTRO ── */
+  .intro { background: var(--white); }
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .intro-philosophy {
+    background: var(--navy); border-radius: 10px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .intro-philosophy::before {
+    content: '"';
+    position: absolute; top: -0.5rem; left: 1.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 8rem; color: rgba(255,255,255,0.05);
+    line-height: 1; pointer-events: none;
+  }
+  .intro-philosophy p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; color: var(--white);
+    line-height: 1.55; position: relative; z-index: 1;
+    font-style: italic;
+  }
+  .intro-philosophy .attribution {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-style: normal;
+    color: rgba(255,255,255,0.4); margin-top: 1.25rem;
+    font-weight: 500; letter-spacing: 0.04em;
+  }
+  .intro-notes { display: flex; flex-direction: column; gap: 1rem; }
+  .intro-note {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border); border-radius: 8px;
+  }
+  .intro-note-icon {
+    width: 38px; height: 38px; background: var(--teal-pale);
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .intro-note-icon svg { width: 18px; height: 18px; stroke: var(--teal); }
+  .intro-note-text { font-size: 0.9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+  .intro-note-text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+  /* ── SHOE ANATOMY ── */
+  .anatomy { background: var(--sand); }
+  .anatomy-diagrams {
+    display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+  }
+  .anatomy-diagram {
+    flex: 1; min-width: 160px;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .anatomy-diagram img {
+    width: 100%; height: 160px; object-fit: contain;
+    padding: 1rem; background: var(--white);
+  }
+  .anatomy-diagram-caption {
+    font-size: 0.75rem; color: var(--muted); font-weight: 500;
+    padding: 0.6rem 1rem 0.8rem; border-top: 1px solid var(--border);
+    text-align: center; line-height: 1.4;
+  }
+  .anatomy-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .anatomy-card {
+    background: var(--white); border-radius: 10px;
+    border: 1px solid var(--border); overflow: hidden;
+  }
+  .anatomy-card-header {
+    padding: 1.5rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .anatomy-card-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 0.35rem;
+  }
+  .anatomy-card-label.teal { color: var(--teal); }
+  .anatomy-card-label.stone { color: var(--stone); }
+  .anatomy-card-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem; color: var(--navy);
+  }
+  .anatomy-list { list-style: none; padding: 1.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .anatomy-list li {
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    font-size: 0.9rem; line-height: 1.55;
+  }
+  .anatomy-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 0.1rem;
+  }
+  .anatomy-check.teal { background: var(--teal-pale); }
+  .anatomy-check.stone { background: #f0f4f7; }
+  .anatomy-check svg { width: 10px; height: 10px; }
+  .anatomy-check.teal svg { stroke: var(--teal); }
+  .anatomy-check.stone svg { stroke: var(--stone); }
+  .anatomy-item-label { font-weight: 600; color: var(--text); }
+  .anatomy-item-desc { color: var(--muted); font-weight: 300; margin-top: 0.15rem; }
+
+  /* ── FEATURED SHOE ── */
+  .featured-shoe {
+    background: var(--teal); padding: 4rem 2rem;
+  }
+  .featured-shoe-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem;
+    align-items: center;
+  }
+  .featured-shoe-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.55);
+    margin-bottom: 0.75rem;
+  }
+  .featured-shoe h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--white); line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .featured-shoe-sub {
+    font-size: 0.85rem; color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .featured-shoe-desc {
+    font-size: 0.95rem; color: rgba(255,255,255,0.8);
+    line-height: 1.75; font-weight: 300;
+  }
+  .featured-shoe-note {
+    margin-top: 1.5rem; padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.1); border-radius: 6px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.65);
+    font-weight: 300; line-height: 1.6;
+  }
+  .featured-shoe-img {
+    width: 100%; border-radius: 8px; margin-top: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    object-fit: contain; background: rgba(255,255,255,0.05);
+    padding: 1rem; max-height: 220px;
+  }
+  .featured-sock img {
+    width: 100%; border-radius: 6px; margin-top: 1.25rem;
+    object-fit: contain; max-height: 180px;
+    background: var(--white); padding: 0.75rem;
+    border: 1px solid var(--border);
+  }
+
+  /* ── SOCKS ── */
+  .socks { background: var(--white); }
+  .socks-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  .socks-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.5rem; }
+  .sock-item {
+    display: flex; gap: 0.85rem; align-items: center;
+    font-size: 0.92rem; color: var(--muted);
+  }
+  .sock-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0;
+  }
+  .featured-sock {
+    background: var(--sand); border-radius: 10px;
+    border: 1px solid var(--border); padding: 2rem;
+  }
+  .featured-sock-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem;
+  }
+  .featured-sock h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem; color: var(--navy); margin-bottom: 0.75rem;
+  }
+  .featured-sock p {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300;
+  }
+
+  /* ── LOCAL STORES ── */
+  .stores { background: var(--sand); }
+  .stores-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .store-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.5rem 1.75rem;
+  }
+  .store-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: var(--navy); margin-bottom: 0.4rem;
+  }
+  .store-card h4 a {
+    color: var(--navy); text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    transition: color 0.2s;
+  }
+  .store-card h4 a:hover { color: var(--teal); }
+  .store-card p {
+    font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5;
+  }
+
+  /* ── CLOSING CALLOUT ── */
+  .closing { background: var(--white); padding: 4rem 2rem; }
+  .closing-inner { max-width: 1200px; margin: 0 auto; }
+  .closing-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .closing-card {
+    border-radius: 10px; padding: 2rem 2.25rem;
+  }
+  .closing-card.warning {
+    background: var(--red-pale); border: 1px solid #f5c0c0;
+  }
+  .closing-card.tip {
+    background: var(--teal-pale); border: 1px solid #b8dede;
+  }
+  .closing-card-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .closing-card.warning .closing-card-label { color: var(--red); }
+  .closing-card.tip .closing-card-label { color: var(--teal); }
+  .closing-card p {
+    font-size: 0.9rem; line-height: 1.7; font-weight: 300; color: var(--text);
+  }
+  .closing-note {
+    margin-top: 2.5rem; padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.875rem; color: var(--muted); line-height: 1.75; font-weight: 300;
+    max-width: 780px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 2rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400; font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .footer-brand-name .suffix {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300; font-size: 0.65rem;
+    color: rgba(255,255,255,0.45); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+  .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .intro-grid,
+    .socks-grid,
+    .anatomy-grid,
+    .closing-box,
+    .featured-shoe-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .stores-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+  }
+  @media (max-width: 600px) {
+    .stores-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .section { padding: 3.5rem 1.25rem; }
+    .closing { padding: 3rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">evenkeel</span>
+      <span class="nav-logo-suffix">Podiatry</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#orthotics">Orthotics</a></li>
+      <li><a href="index.html#doctor">Dr. Santopietro</a></li>
+      <li><a href="index.html#testimonials">Reviews</a></li>
+      <li><a href="index.html#location">Location</a></li>
+      <li><a href="footwear.html" class="nav-active">Footwear Guide</a></li>
+      <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileMenu">
+  <ul>
+    <li><a href="index.html#services" class="mobile-link">Services</a></li>
+    <li><a href="index.html#orthotics" class="mobile-link">Orthotics</a></li>
+    <li><a href="index.html#doctor" class="mobile-link">Dr. Santopietro</a></li>
+    <li><a href="index.html#testimonials" class="mobile-link">Reviews</a></li>
+    <li><a href="index.html#location" class="mobile-link">Location</a></li>
+    <li><a href="footwear.html" class="mobile-link">Footwear Guide</a></li>
+    <li><a href="appointments.html" class="nav-cta mobile-link">Book Appointment</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid-bg"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Patient Resources</div>
+    <h1>Recommended Footwear</h1>
+    <p class="page-header-sub">Shoe styles change every season, which makes specific model recommendations difficult to keep current. What doesn't change is what makes a shoe work well — for your feet, and with your orthotics.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-philosophy">
+        <p>Dr. Santopietro's custom orthotics work in concert with a properly fitted and appropriately constructed pair of shoes.</p>
+        <p class="attribution">— EvenKeel Podiatry</p>
+      </div>
+      <div class="intro-notes">
+        <div class="intro-note">
+          <div class="intro-note-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="intro-note-text">
+            <strong>No single shoe fits every foot</strong>
+            Individual biomechanics mean what works for one patient may not suit another. Use this guide as a starting point, and bring your orthotics when you shop.
+          </div>
+        </div>
+        <div class="intro-note">
+          <div class="intro-note-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="intro-note-text">
+            <strong>Always fit shoes with your orthotics in place</strong>
+            A shoe that feels right without the orthotic may be too snug once it's inside. Plan for the extra volume.
+          </div>
+        </div>
+        <div class="intro-note">
+          <div class="intro-note-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="intro-note-text">
+            <strong>Ask for help from a knowledgeable fitter</strong>
+            The local stores listed below have staff experienced with orthotics and wider sizing. They are familiar with the EvenKeel approach.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOE ANATOMY -->
+<section class="section anatomy">
+  <div class="section-inner">
+    <div class="section-eyebrow">What to Look For</div>
+    <h2 class="section-title">Anatomy of a Good Shoe</h2>
+    <p class="section-lead">Whether you wear full custom orthotics or need only minimal support, the construction of your shoe matters. Here's what to evaluate before you buy.</p>
+
+    <div class="anatomy-diagrams">
+      <div class="anatomy-diagram">
+        <img src="http://evenkeelpodiatry.com/wp-content/uploads/2016/12/EvenKeel_Podiatry_Santopietro_sole-width.gif" alt="Diagram showing proper sole width" />
+        <div class="anatomy-diagram-caption">Wide base from toe to heel</div>
+      </div>
+      <div class="anatomy-diagram">
+        <img src="http://evenkeelpodiatry.com/wp-content/uploads/2016/12/EvenKeel_Podiatry_Santopietro_pyramidheel.gif" alt="Diagram showing pyramid heel shape" />
+        <div class="anatomy-diagram-caption">Pyramid Shaped Heel Counter</div>
+      </div>
+      <div class="anatomy-diagram">
+        <img src="http://evenkeelpodiatry.com/wp-content/uploads/2016/12/EvenKeel_Podiatry_Santopietro_sneaker-heelcounter.gif" alt="Diagram showing sneaker heel counter" />
+        <div class="anatomy-diagram-caption">Deep, firm heel counter</div>
+      </div>
+    </div>
+    <div class="featured-shoe-note" style="background:rgba(0,0,0,0.05);color:var(--muted);border-radius:6px;padding:1rem 1.25rem;font-size:0.82rem;line-height:1.6;margin-bottom:2.5rem;">Yes, those diagrams feature a Brooks Beast that's been out of production for years. An oldie but a goodie, as examples go — the principles illustrated are timeless even if the shoe isn't.</div>
+
+    <div class="anatomy-grid">
+
+      <div class="anatomy-card">
+        <div class="anatomy-card-header">
+          <div class="anatomy-card-label teal">Primary Use Case</div>
+          <h3>For Shoes Worn With Orthotics</h3>
+        </div>
+        <ul class="anatomy-list">
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Wide toe box and midfoot</div>
+              <div class="anatomy-item-desc">Women's 2E and men's 4E widths are often needed. The orthotic takes up volume; the shoe must accommodate it without crowding the foot.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Firm, deep heel counter</div>
+              <div class="anatomy-item-desc">Pyramidal shape preferred. Prevents the foot from sliding backward and gives the orthotic a stable surface to work against.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Thick, removable insole</div>
+              <div class="anatomy-item-desc">Remove the factory insole before inserting your orthotic. A shoe with a glued-in liner will not work well.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Midsole that wraps the midfoot</div>
+              <div class="anatomy-item-desc">Cushioning material should extend up the sides at the arch — not just sit underneath. This cradles and stabilizes.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Heel raised at least 5/8" above forefoot</div>
+              <div class="anatomy-item-desc">Up to 1½" is fine. A slight heel drop reduces strain on the Achilles and plantar fascia.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Lace-up closure</div>
+              <div class="anatomy-item-desc">Allows you to control fit precisely. Slip-ons and elastic closures cannot hold the foot securely enough.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check teal"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Flexes at the forefoot, not the arch</div>
+              <div class="anatomy-item-desc">Bend the shoe in your hands. It should give at the ball of the foot. If it bends through the middle, the shoe is too soft to support your orthotic.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="anatomy-card">
+        <div class="anatomy-card-header">
+          <div class="anatomy-card-label stone">For Minimal Orthotic Use</div>
+          <h3>For Shoes Worn Without Orthotics</h3>
+        </div>
+        <ul class="anatomy-list">
+          <li>
+            <div class="anatomy-check stone"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Heel raised above forefoot</div>
+              <div class="anatomy-item-desc">Even without a full orthotic, some heel elevation helps reduce loading on the arch and Achilles.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check stone"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Lace-up or boot style</div>
+              <div class="anatomy-item-desc">Tie shoes and ankle boots provide better support than slip-ons. Boot styles are generally superior for ankle stability.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check stone"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Wide, stable base</div>
+              <div class="anatomy-item-desc">A wider sole from toe to heel gives the foot a more forgiving platform, especially on uneven terrain.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check stone"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Firm heel counter</div>
+              <div class="anatomy-item-desc">Even without an orthotic inside, a structured heel counter prevents the foot from rolling and supports the calcaneus.</div>
+            </div>
+          </li>
+          <li>
+            <div class="anatomy-check stone"><svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <div class="anatomy-item-label">Avoid open-back designs</div>
+              <div class="anatomy-item-desc">Clogs, mules, and backless sandals offer no heel control. They alter gait in ways that compound most foot problems.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SHOE -->
+<div class="featured-shoe">
+  <div class="featured-shoe-inner">
+    <div>
+      <div class="featured-shoe-label">A Shoe We Often Recommend</div>
+      <h2>Brooks Addiction GTS</h2>
+      <p class="featured-shoe-sub">Maximum motion control · Multiple widths available</p>
+      <img class="featured-shoe-img" src="images/Brooks_addiction-gts-15-mens.avif" alt="Brooks Addiction GTS men's running shoe" />
+    </div>
+    <div>
+      <p class="featured-shoe-desc">The Brooks Addiction GTS checks nearly every box on the list above. It delivers maximum support through a combination of stability technologies, comes in multiple widths, and has enough interior volume to accommodate a full custom orthotic comfortably. It is not the only shoe that works — but it is a reliable starting point for patients who aren't sure where to begin.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SOCKS -->
+<section class="section socks">
+  <div class="section-inner">
+    <div class="section-eyebrow">Don't Overlook the Sock</div>
+    <h2 class="section-title">Sock Recommendations</h2>
+    <p class="section-lead">The right sock complements both your shoe and your orthotic. The wrong one introduces wrinkles, bulk, and pressure points that undermine everything else.</p>
+
+    <div class="socks-grid">
+      <div>
+        <p style="font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:1.25rem;">Look for socks with these characteristics:</p>
+        <div class="socks-list">
+          <div class="sock-item"><div class="sock-dot"></div>Thin profile — thicker is not better</div>
+          <div class="sock-item"><div class="sock-dot"></div>Open weave construction with minimal seams</div>
+          <div class="sock-item"><div class="sock-dot"></div>Compressive fit — the sock should hug the foot, not bunch</div>
+          <div class="sock-item"><div class="sock-dot"></div>Lycra or similar synthetic blend preferred</div>
+          <div class="sock-item"><div class="sock-dot"></div>Seams away from toes and pressure points</div>
+          <div class="sock-item"><div class="sock-dot"></div>Smooth fit with no wrinkles — put them on carefully</div>
+        </div>
+      </div>
+      <div>
+        <div class="featured-sock">
+          <div class="featured-sock-label">One We Recommend</div>
+          <h3><a href="https://feetures.com/" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;border-bottom:1px solid var(--teal);">Feetures! Running Socks</a></h3>
+          <p>Feetures! socks provide the exact amount of compression so each sock gently hugs the foot — no bunching, no pressure points, no distraction from the work your orthotic is doing. Worth trying as a reference point if you're unsure what a well-fitted sock should feel like.</p>
+          <img src="http://evenkeelpodiatry.com/wp-content/uploads/2015/04/EvenKeel_Podiatry_Santopietro_feetures_light_crew.jpg" alt="Feetures! light crew running socks" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL STORES -->
+<section class="section stores">
+  <div class="section-inner">
+    <div class="section-eyebrow">Shop Locally</div>
+    <h2 class="section-title">Boston-Area Shoe Stores We Trust</h2>
+    <p class="section-lead">These local retailers carry wider widths, know how to fit shoes with orthotics inside, and have staff who can help rather than just hand you a box.</p>
+
+    <div class="stores-grid">
+      <div class="store-card">
+        <h4><a href="https://www.simonsshoes.com/" target="_blank" rel="noopener">Simon's Shoes</a></h4>
+        <p>Harvard Ave, Coolidge Corner. Long-established specialty retailer with deep experience fitting patients who wear orthotics.</p>
+      </div>
+      <div class="store-card">
+        <h4><a href="https://thebarnshoes.com/" target="_blank" rel="noopener">The Barn Family Shoe Store</a></h4>
+        <p>Knowledgeable staff, wide-width inventory, and a focus on functional footwear for the whole family.</p>
+      </div>
+      <div class="store-card">
+        <h4><a href="https://panzashoes.com/" target="_blank" rel="noopener">Panza Shoes</a></h4>
+        <p>Family-owned. Good selection across athletic and dress categories with a practical approach to fit.</p>
+      </div>
+      <div class="store-card">
+        <h4><a href="https://www.footstockshoes.com/" target="_blank" rel="noopener">Footstock</a></h4>
+        <p>Athletic focus with a solid range of motion-control and stability options in multiple widths.</p>
+      </div>
+      <div class="store-card">
+        <h4><a href="https://www.marathonsports.com/" target="_blank" rel="noopener">Marathon Sports</a></h4>
+        <p>Boston's go-to running specialty retailer. Knowledgeable staff and a strong selection of stability and motion-control shoes in extended widths.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-box">
+      <div class="closing-card warning">
+        <div class="closing-card-label">Please Avoid</div>
+        <p>Bare feet, flip flops, clogs, and zero-drop or flat-soled shoes work against nearly everything we're trying to accomplish with an orthotic. Even on a quick trip to the mailbox, footwear matters. If you have an active foot condition, treat shoe choice as part of the treatment.</p>
+      </div>
+      <div class="closing-card tip">
+        <div class="closing-card-label">For Dress Occasions</div>
+        <p>We understand that dress shoes require compromise. When you can't wear your full orthotic, always favor a moderate heel over a flat. A dress orthotic is available for patients who need support in a slimmer shoe profile. Ask Dr. Santopietro at your next visit.</p>
+      </div>
+    </div>
+    <p class="closing-note">These recommendations will not suit every patient. Foot biomechanics vary widely, and what works well for one person may not be right for another. If you're uncertain about a specific shoe or have questions about fit, bring the shoe to your appointment and we'll evaluate it together. We update these recommendations as we learn more from our patients and from new products in the market.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+      <p class="footer-desc">Experts in sports medicine and custom orthotics serving Greater Boston since 1974. Dr. Frank J. Santopietro, D.P.M.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="index.html#orthotics">Custom Orthotics</a></li>
+        <li><a href="index.html#services">Sports Medicine</a></li>
+        <li><a href="index.html#services">Diabetic Foot Care</a></li>
+        <li><a href="index.html#services">Pediatric Podiatry</a></li>
+        <li><a href="index.html#services">Surgical Options</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice</div>
+      <ul class="footer-links">
+        <li><a href="index.html#doctor">About Dr. Santopietro</a></li>
+        <li><a href="index.html#process">Our Process</a></li>
+        <li><a href="index.html#testimonials">Patient Testimonials</a></li>
+        <li><a href="footwear.html">Footwear Guide</a></li>
+        <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:6177340003">617.734.0003</a></li>
+        <li><a href="mailto:info@evenkeelpodiatry.com">info@evenkeelpodiatry.com</a></li>
+        <li><a href="appointments.html">Request Appointment</a></li>
+        <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-bottom">
+      <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+      <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('iconOpen');
+    var iconClose = document.getElementById('iconClose');
+    var links = menu.querySelectorAll('.mobile-link');
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      iconOpen.style.display = '';
+      iconClose.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      iconOpen.style.display = isOpen ? 'none' : '';
+      iconClose.style.display = isOpen ? '' : 'none';
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    links.forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+</body>
+</html>
