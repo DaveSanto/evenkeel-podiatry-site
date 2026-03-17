@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Injuries &amp; Achilles Tendon | EvenKeel Podiatry | Brookline, MA</title>
+  <meta name="description" content="Expert care for Achilles tendinopathy, stress fractures, and sports foot injuries in Brookline, MA. Dr. Frank J. Santopietro, DPM — biomechanically guided treatment for athletes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1f2d;
+      --navy-mid: #1a3347;
+      --teal: #2a7f7f;
+      --teal-light: #3a9e9e;
+      --teal-pale: #e8f5f5;
+      --sand: #f5f0e8;
+      --stone: #8a9ba8;
+      --text: #1a2a35;
+      --muted: #5a7080;
+      --white: #ffffff;
+      --border: #d8e4ea;
+      --red: #c00000;
+      --red-light: #d42020;
+      --red-pale: #fdf0f0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13, 31, 45, 0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 68px; }
+    .nav-logo { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--white); text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: baseline; gap: 0; }
+    .nav-logo-brand { font-family: 'Josefin Sans', sans-serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: 0.04em; }
+    .nav-logo-suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; margin-left: 0.4rem; text-transform: uppercase; align-self: center; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--white); flex-shrink: 0; }
+    .nav-hamburger svg { display: block; }
+    .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: rgba(13,31,45,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem 1.5rem; }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+    .nav-mobile li a { display: block; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.2s; }
+    .nav-mobile li:last-child a { border-bottom: none; }
+    .nav-mobile li a:hover { color: var(--white); }
+    .nav-mobile .nav-cta { margin-top: 1rem; background: var(--teal); color: var(--white) !important; text-align: center; border-radius: 4px; padding: 0.9rem !important; font-weight: 600 !important; border-bottom: none !important; display: block; }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--navy); padding: 9rem 2rem 5rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%); pointer-events: none; }
+    .page-header-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--teal-light); }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .page-header-sub { color: rgba(255,255,255,0.55); font-size: 1rem; font-weight: 300; max-width: 620px; line-height: 1.7; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.7); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+
+    /* CONTENT */
+    .content-section { padding: 5rem 2rem; background: var(--white); }
+    .content-inner { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 2.5vw, 2.2rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.25rem; }
+    .section-lead { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 720px; }
+
+    /* OVERVIEW GRID */
+    .overview-grid { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
+    .overview-sidebar { position: sticky; top: 90px; }
+    .quick-facts { background: var(--navy); border-radius: 12px; padding: 2rem; }
+    .quick-facts-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
+    .fact-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .fact-item:last-child { border-bottom: none; }
+    .fact-icon { width: 32px; height: 32px; background: rgba(42,127,127,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .fact-icon svg { width: 14px; height: 14px; stroke: var(--teal-light); }
+    .fact-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.15rem; }
+    .fact-value { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.4; }
+    .overview-prose h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 2vw, 2rem); color: var(--navy); margin-bottom: 1rem; }
+    .overview-prose p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; font-weight: 300; margin-bottom: 1.25rem; }
+    .overview-prose p:last-child { margin-bottom: 0; }
+    .inline-highlight { background: var(--teal-pale); border-left: 3px solid var(--teal); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text); line-height: 1.7; }
+
+    /* SYMPTOMS */
+    .alt-section { padding: 4rem 2rem; background: var(--sand); }
+    .symptoms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .symptom-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+    .symptom-icon { width: 44px; height: 44px; background: var(--teal-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .symptom-icon svg { width: 20px; height: 20px; stroke: var(--teal); }
+    .symptom-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .symptom-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* CAUSES */
+    .causes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; align-items: start; }
+    .causes-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .causes-list li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+    .causes-list li::before { content: ''; display: block; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin-top: 0.55rem; flex-shrink: 0; }
+    .risk-card { background: var(--red-pale); border: 1px solid rgba(192,0,0,0.12); border-radius: 10px; padding: 1.75rem; }
+    .risk-card-title { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; font-size: 0.75rem; }
+    .risk-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .risk-card ul li { font-size: 0.875rem; color: var(--text); line-height: 1.55; display: flex; gap: 0.5rem; align-items: flex-start; }
+    .risk-card ul li::before { content: '▸'; color: var(--red); flex-shrink: 0; }
+
+    /* TREATMENT STEPS */
+    .treatment-section { padding: 5rem 2rem; background: var(--white); }
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative; }
+    .step { display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; padding-bottom: 2.5rem; position: relative; }
+    .step::before { content: ''; position: absolute; left: 29px; top: 60px; bottom: 0; width: 2px; background: var(--border); }
+    .step:last-child::before { display: none; }
+    .step-num { width: 60px; height: 60px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--white); flex-shrink: 0; position: relative; z-index: 1; }
+    .step-content { padding-top: 0.75rem; }
+    .step-title { font-weight: 600; font-size: 1rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .step-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* CITATIONS */
+    .citations-section { padding: 4rem 2rem; background: var(--sand); border-top: 1px solid var(--border); }
+    .citation-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .citation { border-left: 3px solid var(--teal); padding: 0.75rem 1.25rem; background: var(--white); border-radius: 0 6px 6px 0; font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .citation strong { color: var(--text); font-weight: 600; }
+    .citation em { font-style: italic; color: var(--stone); }
+
+    /* CTA BAND */
+    .cta-band { background: var(--navy); padding: 4rem 2rem; text-align: center; }
+    .cta-band h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--white); margin-bottom: 0.75rem; }
+    .cta-band p { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--teal-light); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.25); transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.6); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 3rem 2rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-name { font-family: 'Josefin Sans', sans-serif; font-weight: 400; font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+    .footer-brand-name .suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; margin-left: 0.4rem; vertical-align: middle; }
+    .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .overview-sidebar { position: static; }
+      .symptoms-grid { grid-template-columns: 1fr 1fr; }
+      .causes-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .symptoms-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .page-header { padding: 8rem 1.25rem 3.5rem; }
+      .content-section, .alt-section, .treatment-section { padding: 3rem 1.25rem; }
+      .cta-band { padding: 3rem 1.25rem; }
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header-inner > * { animation: fadeUp 0.65s ease both; }
+    .page-eyebrow { animation-delay: 0.1s; }
+    .page-header h1 { animation-delay: 0.2s; }
+    .page-header-sub { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="nav-logo-brand">evenkeel</span>
+        <span class="nav-logo-suffix">Podiatry</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#orthotics">Orthotics</a></li>
+        <li><a href="../index.html#doctor">Dr. Santopietro</a></li>
+        <li><a href="../index.html#testimonials">Reviews</a></li>
+        <li><a href="../index.html#location">Location</a></li>
+        <li><a href="../appointments.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html#services" class="mobile-link">Services</a></li>
+      <li><a href="../index.html#orthotics" class="mobile-link">Orthotics</a></li>
+      <li><a href="../index.html#doctor" class="mobile-link">Dr. Santopietro</a></li>
+      <li><a href="../index.html#testimonials" class="mobile-link">Reviews</a></li>
+      <li><a href="../index.html#location" class="mobile-link">Location</a></li>
+      <li><a href="../appointments.html" class="nav-cta mobile-link">Book Appointment</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-grid-bg"></div>
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Conditions</span>
+        <span class="breadcrumb-sep">/</span>
+        <span>Sports &amp; Achilles</span>
+      </div>
+      <div class="page-eyebrow">Conditions We Treat</div>
+      <h1>Sports Injuries &amp; Achilles Tendon</h1>
+      <p class="page-header-sub">From overuse injuries in distance runners to acute tendon pathology in competitive athletes — biomechanically guided care that gets you back to performance.</p>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section class="content-section">
+    <div class="content-inner">
+      <div class="overview-grid">
+        <aside class="overview-sidebar">
+          <div class="quick-facts">
+            <div class="quick-facts-title">Quick Facts</div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Common in</div>
+                <div class="fact-value">Runners, cyclists, basketball/tennis players, weekend warriors</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Achilles Tendinopathy Onset</div>
+                <div class="fact-value">Gradual (overuse) or sudden (partial/full tear)</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Key Concern</div>
+                <div class="fact-value">Tendon degeneration (tendinosis) if left untreated</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Treatment Response</div>
+                <div class="fact-value">Very good; eccentric loading and orthotics are first-line</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="overview-prose">
+          <h2>Achilles &amp; Sports Foot Injuries</h2>
+          <p>The Achilles tendon — the largest and strongest tendon in the body — is also one of the most frequently injured structures in active individuals. Achilles tendinopathy encompasses a spectrum from reactive tendinopathy (acute inflammatory response to overload) through tendon disrepair to degenerative tendinosis (intratendinous collagen disruption). The distinction matters clinically: early reactive tendinopathy responds rapidly to load management, while established tendinosis requires a structured progressive loading program to stimulate collagen remodeling.</p>
+          <p>Beyond the Achilles, the foot and ankle are vulnerable to a wide range of sports-related overuse injuries — stress fractures of the metatarsals, sesamoiditis, peroneal tendinopathy, tarsal tunnel syndrome, and posterior tibial tendon injuries — as well as acute trauma including ligamentous sprains, turf toe, and fractures. In the young and adolescent athlete, the developing skeleton introduces additional considerations: apophysitis at the calcaneus (Sever's disease) and the base of the fifth metatarsal are often mistaken for soft-tissue injuries and require specific management.</p>
+          <p>Dr. Santopietro has spent over five decades treating elite, collegiate, and recreational athletes across Greater Boston. His approach integrates biomechanical assessment — understanding how the athlete's foot structure, gait pattern, and training habits generate the injurious load — with prescription orthotics, rehabilitation guidance, and footwear optimization. The goal is not only recovery from the current injury but the identification and correction of the mechanical predispositions that caused it.</p>
+          <div class="inline-highlight">
+            "In distance runners, subtle overpronation during the stance phase generates a repetitive whipping stress on the medial Achilles. A properly designed functional orthosis can dramatically reduce this torsional load — often resolving tendinopathy that has failed months of stretching alone."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYMPTOMS -->
+  <section class="alt-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Presentation</div>
+      <h2 class="section-title">Signs &amp; Symptoms</h2>
+      <p class="section-lead">Sports foot injuries and Achilles tendinopathy present across a range of patterns depending on the structure involved and the stage of pathology.</p>
+      <div class="symptoms-grid">
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="symptom-title">Achilles Morning Pain &amp; Stiffness</div>
+          <p class="symptom-desc">Pain and tightness in the Achilles on first rising, easing with warmup; classic tendinopathy presentation.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="symptom-title">Midportion or Insertional Tenderness</div>
+          <p class="symptom-desc">Pinpoint tenderness 2–6 cm above the calcaneal insertion (midportion) or at the insertion itself.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="symptom-title">Tendon Thickening &amp; Nodule</div>
+          <p class="symptom-desc">Palpable fusiform swelling or hard nodule within the tendon body, indicating collagen disruption.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="symptom-title">Metatarsal Stress Fracture Pain</div>
+          <p class="symptom-desc">Focal metatarsal dorsal tenderness with swelling; pain worsens with activity, improves with rest.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="symptom-title">Lateral Ankle Instability</div>
+          <p class="symptom-desc">Chronic giving-way, weak-feeling ankle after recurrent sprains; indicates ligamentous laxity.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="symptom-title">Sesamoid &amp; Ball-of-Foot Pain</div>
+          <p class="symptom-desc">Sharp pain under the first metatarsophalangeal joint during push-off; worse on hard surfaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAUSES & RISK FACTORS -->
+  <section class="content-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Etiology</div>
+      <h2 class="section-title">Causes &amp; Risk Factors</h2>
+      <p class="section-lead">Sports injuries to the foot and Achilles tendon are almost always load-driven. Identifying the mechanical and training factors is essential to lasting recovery.</p>
+      <div class="causes-grid">
+        <div>
+          <ul class="causes-list">
+            <li>Sudden increase in training load (mileage, intensity, or surface hardness)</li>
+            <li>Excessive rearfoot pronation generating torsional stress on the Achilles</li>
+            <li>Tight gastrocnemius-soleus complex limiting ankle dorsiflexion</li>
+            <li>Transition to minimalist footwear or racing flats without adaptation</li>
+            <li>Poor footwear support or worn-out midsole cushioning</li>
+            <li>Training on camber (sloped road surfaces) creating asymmetric loading</li>
+            <li>Previous ankle sprains with incomplete rehabilitation</li>
+            <li>Biomechanical asymmetry (leg-length discrepancy, functional scoliosis)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="risk-card">
+            <div class="risk-card-title">Who Is at Highest Risk</div>
+            <ul>
+              <li>Competitive runners, especially those in heavy mileage blocks</li>
+              <li>Athletes returning too quickly after injury</li>
+              <li>Masters athletes (tendon vascularity declines with age)</li>
+              <li>Those with limited ankle dorsiflexion (&lt;10°)</li>
+              <li>Fluoroquinolone antibiotic use (known tendon risk)</li>
+              <li>Athletes with hyperpronation or rigid cavus foot type</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREATMENT -->
+  <section class="treatment-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Our Approach</div>
+      <h2 class="section-title">Treatment at EvenKeel</h2>
+      <p class="section-lead">Dr. Santopietro's sports injury protocol combines load management, biomechanical correction, and evidence-based rehabilitation to return athletes to full performance.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Load Assessment &amp; Modification</div>
+            <p class="step-desc">The training load is analyzed and modified. For acute injuries, relative rest and activity substitution (pool running, cycling) maintain fitness while removing the injurious stimulus.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Biomechanical Evaluation</div>
+            <p class="step-desc">Gait analysis identifies the mechanical driver: pronation pattern, ankle range of motion, foot type, and leg-length equality. This determines the orthotic prescription.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Custom Orthotics</div>
+            <p class="step-desc">Functional orthotics address the mechanical predisposition to tendon overload. For Achilles pathology, a heel lift combined with pronation control can significantly reduce tendon stress.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Eccentric Loading Rehabilitation</div>
+            <p class="step-desc">Evidence-based eccentric calf-strengthening protocols (Alfredson protocol for midportion; heavy slow resistance for insertional) are prescribed to drive tendon collagen remodeling.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Footwear Optimization</div>
+            <p class="step-desc">Shoe type, drop, cushioning level, and fit are reviewed relative to the athlete's event, training surface, and foot type.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Return-to-Sport Planning</div>
+            <p class="step-desc">A structured, progressive return to full training is mapped out, with clear load benchmarks and monitoring of symptom response.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITATIONS -->
+  <section class="citations-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Evidence Base</div>
+      <h2 class="section-title">Research &amp; References</h2>
+      <div class="citation-list">
+        <div class="citation">
+          <strong>Alfredson H, Pietilä T, Jonsson P, Lorentzon R.</strong> "Heavy-load eccentric calf muscle training for the treatment of chronic Achilles tendinosis." <em>Am J Sports Med.</em> 1998;26(3):360–366.
+        </div>
+        <div class="citation">
+          <strong>Maffulli N, Khan KM, Puddu G.</strong> "Overuse tendon conditions: time to change a confusing terminology." <em>Arthroscopy.</em> 1998;14(8):840–843.
+        </div>
+        <div class="citation">
+          <strong>van der Vlist AC, Breda SJ, Oei EHG, Verhaar JAN, de Vos RJ.</strong> "Clinical risk factors for Achilles tendinopathy: a systematic review." <em>Br J Sports Med.</em> 2019;53(21):1351–1358.
+        </div>
+        <div class="citation">
+          <strong>Cook JL, Purdam CR.</strong> "Is tendon pathology a continuum? A pathology model to explain the clinical presentation of load-induced tendinopathy." <em>Br J Sports Med.</em> 2009;43(6):409–416.
+        </div>
+        <div class="citation">
+          <strong>Santopietro FJ.</strong> "Foot and foot-related injuries in the young athlete." <em>Clin Sports Med.</em> 1988;7(3):563–589.
+        </div>
+        <div class="citation">
+          <strong>Kvist M.</strong> "Achilles tendon injuries in athletes." <em>Sports Med.</em> 1994;18(3):173–201.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <h2>Back to the Sport You Love</h2>
+    <p>Whether you're a competitive runner or a weekend hiker, Dr. Santopietro will identify what's driving your injury and build a plan to get you back — stronger.</p>
+    <div class="cta-buttons">
+      <a href="../appointments.html" class="btn-primary">Book an Appointment</a>
+      <a href="tel:6177340003" class="btn-secondary">Call 617.734.0003</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+        <p class="footer-desc">Experts in sports medicine and custom orthotics serving Greater Boston since 1974. Dr. Frank J. Santopietro, D.P.M.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Conditions</div>
+        <ul class="footer-links">
+          <li><a href="heel-pain.html">Heel Pain</a></li>
+          <li><a href="sports-injuries-achilles.html">Sports &amp; Achilles</a></li>
+          <li><a href="bunions-hammertoes.html">Bunions &amp; Hammertoes</a></li>
+          <li><a href="diabetic-foot-care.html">Diabetic Foot Care</a></li>
+          <li><a href="flat-feet-arch-pain.html">Flat Feet &amp; Arch Pain</a></li>
+          <li><a href="pediatric-foot-conditions.html">Pediatric Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Practice</div>
+        <ul class="footer-links">
+          <li><a href="../index.html#doctor">About Dr. Santopietro</a></li>
+          <li><a href="../index.html#orthotics">Custom Orthotics</a></li>
+          <li><a href="../index.html#testimonials">Patient Testimonials</a></li>
+          <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:6177340003">617.734.0003</a></li>
+          <li><a href="mailto:info@evenkeelpodiatry.com">info@evenkeelpodiatry.com</a></li>
+          <li><a href="../appointments.html">Request Appointment</a></li>
+          <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="footer-bottom">
+        <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+        <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobileMenu');
+      var iconOpen = document.getElementById('iconOpen');
+      var iconClose = document.getElementById('iconClose');
+      var links = menu.querySelectorAll('.mobile-link');
+      function closeMenu() {
+        menu.classList.remove('open');
+        iconOpen.style.display = '';
+        iconClose.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        iconOpen.style.display = isOpen ? 'none' : '';
+        iconClose.style.display = isOpen ? '' : 'none';
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+      links.forEach(function(link) { link.addEventListener('click', closeMenu); });
+    })();
+  </script>
+
+</body>
+</html>

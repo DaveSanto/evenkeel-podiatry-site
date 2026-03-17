@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heel Pain: Plantar Fasciitis &amp; Calcaneal Periostitis | EvenKeel Podiatry | Brookline, MA</title>
+  <meta name="description" content="Expert treatment for plantar fasciitis and calcaneal periostitis in Brookline, MA. Dr. Frank J. Santopietro, DPM uses biomechanical evaluation and custom orthotics for lasting heel pain relief." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1f2d;
+      --navy-mid: #1a3347;
+      --teal: #2a7f7f;
+      --teal-light: #3a9e9e;
+      --teal-pale: #e8f5f5;
+      --sand: #f5f0e8;
+      --stone: #8a9ba8;
+      --text: #1a2a35;
+      --muted: #5a7080;
+      --white: #ffffff;
+      --border: #d8e4ea;
+      --red: #c00000;
+      --red-light: #d42020;
+      --red-pale: #fdf0f0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13, 31, 45, 0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 68px; }
+    .nav-logo { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--white); text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: baseline; gap: 0; }
+    .nav-logo-brand { font-family: 'Josefin Sans', sans-serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: 0.04em; }
+    .nav-logo-suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; margin-left: 0.4rem; text-transform: uppercase; align-self: center; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--white); flex-shrink: 0; }
+    .nav-hamburger svg { display: block; }
+    .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: rgba(13,31,45,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem 1.5rem; }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+    .nav-mobile li a { display: block; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.2s; }
+    .nav-mobile li:last-child a { border-bottom: none; }
+    .nav-mobile li a:hover { color: var(--white); }
+    .nav-mobile .nav-cta { margin-top: 1rem; background: var(--teal); color: var(--white) !important; text-align: center; border-radius: 4px; padding: 0.9rem !important; font-weight: 600 !important; border-bottom: none !important; display: block; }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--navy); padding: 9rem 2rem 5rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%); pointer-events: none; }
+    .page-header-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--teal-light); }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .page-header-sub { color: rgba(255,255,255,0.55); font-size: 1rem; font-weight: 300; max-width: 620px; line-height: 1.7; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.7); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+
+    /* CONTENT */
+    .content-section { padding: 5rem 2rem; background: var(--white); }
+    .content-inner { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 2.5vw, 2.2rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.25rem; }
+    .section-lead { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 720px; }
+
+    /* OVERVIEW GRID */
+    .overview-grid { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
+    .overview-sidebar { position: sticky; top: 90px; }
+    .quick-facts { background: var(--navy); border-radius: 12px; padding: 2rem; }
+    .quick-facts-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
+    .fact-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .fact-item:last-child { border-bottom: none; }
+    .fact-icon { width: 32px; height: 32px; background: rgba(42,127,127,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .fact-icon svg { width: 14px; height: 14px; stroke: var(--teal-light); }
+    .fact-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.15rem; }
+    .fact-value { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.4; }
+    .overview-prose h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 2vw, 2rem); color: var(--navy); margin-bottom: 1rem; }
+    .overview-prose p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; font-weight: 300; margin-bottom: 1.25rem; }
+    .overview-prose p:last-child { margin-bottom: 0; }
+    .inline-highlight { background: var(--teal-pale); border-left: 3px solid var(--teal); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text); line-height: 1.7; }
+
+    /* SYMPTOMS */
+    .alt-section { padding: 4rem 2rem; background: var(--sand); }
+    .symptoms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .symptom-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+    .symptom-icon { width: 44px; height: 44px; background: var(--teal-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .symptom-icon svg { width: 20px; height: 20px; stroke: var(--teal); }
+    .symptom-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .symptom-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* CAUSES */
+    .causes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; align-items: start; }
+    .causes-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .causes-list li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+    .causes-list li::before { content: ''; display: block; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin-top: 0.55rem; flex-shrink: 0; }
+    .risk-card { background: var(--red-pale); border: 1px solid rgba(192,0,0,0.12); border-radius: 10px; padding: 1.75rem; }
+    .risk-card-title { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; font-size: 0.75rem; }
+    .risk-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .risk-card ul li { font-size: 0.875rem; color: var(--text); line-height: 1.55; display: flex; gap: 0.5rem; align-items: flex-start; }
+    .risk-card ul li::before { content: '▸'; color: var(--red); flex-shrink: 0; }
+
+    /* TREATMENT STEPS */
+    .treatment-section { padding: 5rem 2rem; background: var(--white); }
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative; }
+    .step { display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; padding-bottom: 2.5rem; position: relative; }
+    .step::before { content: ''; position: absolute; left: 29px; top: 60px; bottom: 0; width: 2px; background: var(--border); }
+    .step:last-child::before { display: none; }
+    .step-num { width: 60px; height: 60px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--white); flex-shrink: 0; position: relative; z-index: 1; }
+    .step-content { padding-top: 0.75rem; }
+    .step-title { font-weight: 600; font-size: 1rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .step-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* CITATIONS */
+    .citations-section { padding: 4rem 2rem; background: var(--sand); border-top: 1px solid var(--border); }
+    .citation-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .citation { border-left: 3px solid var(--teal); padding: 0.75rem 1.25rem; background: var(--white); border-radius: 0 6px 6px 0; font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .citation strong { color: var(--text); font-weight: 600; }
+    .citation em { font-style: italic; color: var(--stone); }
+
+    /* CTA BAND */
+    .cta-band { background: var(--navy); padding: 4rem 2rem; text-align: center; }
+    .cta-band h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--white); margin-bottom: 0.75rem; }
+    .cta-band p { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--teal-light); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.25); transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.6); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 3rem 2rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-name { font-family: 'Josefin Sans', sans-serif; font-weight: 400; font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+    .footer-brand-name .suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; margin-left: 0.4rem; vertical-align: middle; }
+    .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .overview-sidebar { position: static; }
+      .symptoms-grid { grid-template-columns: 1fr 1fr; }
+      .causes-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .symptoms-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .page-header { padding: 8rem 1.25rem 3.5rem; }
+      .content-section, .alt-section, .treatment-section { padding: 3rem 1.25rem; }
+      .cta-band { padding: 3rem 1.25rem; }
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header-inner > * { animation: fadeUp 0.65s ease both; }
+    .page-eyebrow { animation-delay: 0.1s; }
+    .page-header h1 { animation-delay: 0.2s; }
+    .page-header-sub { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="nav-logo-brand">evenkeel</span>
+        <span class="nav-logo-suffix">Podiatry</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#orthotics">Orthotics</a></li>
+        <li><a href="../index.html#doctor">Dr. Santopietro</a></li>
+        <li><a href="../index.html#testimonials">Reviews</a></li>
+        <li><a href="../index.html#location">Location</a></li>
+        <li><a href="../appointments.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html#services" class="mobile-link">Services</a></li>
+      <li><a href="../index.html#orthotics" class="mobile-link">Orthotics</a></li>
+      <li><a href="../index.html#doctor" class="mobile-link">Dr. Santopietro</a></li>
+      <li><a href="../index.html#testimonials" class="mobile-link">Reviews</a></li>
+      <li><a href="../index.html#location" class="mobile-link">Location</a></li>
+      <li><a href="../appointments.html" class="nav-cta mobile-link">Book Appointment</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-grid-bg"></div>
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Conditions</span>
+        <span class="breadcrumb-sep">/</span>
+        <span>Heel Pain</span>
+      </div>
+      <div class="page-eyebrow">Conditions We Treat</div>
+      <h1>Heel Pain: Plantar Fasciitis &amp; Calcaneal Periostitis</h1>
+      <p class="page-header-sub">Two of the most common and treatable causes of heel pain — and why biomechanical correction makes all the difference.</p>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section class="content-section">
+    <div class="content-inner">
+      <div class="overview-grid">
+        <aside class="overview-sidebar">
+          <div class="quick-facts">
+            <div class="quick-facts-title">Quick Facts</div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Also Known As</div>
+                <div class="fact-value">Heel spur syndrome, subcalcaneal pain</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Who Gets It</div>
+                <div class="fact-value">Athletes, active adults, people on their feet all day</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Key Symptom</div>
+                <div class="fact-value">Sharp pain at the base of the heel, worst with first steps in the morning</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="fact-label">Treatment Response</div>
+                <div class="fact-value">Excellent with conservative care; most resolve within 6–12 months</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="overview-prose">
+          <h2>Understanding Heel Pain</h2>
+          <p>Plantar fasciitis is inflammation of the plantar fascia — the thick band of connective tissue running from the calcaneus (heel bone) to the metatarsal heads at the ball of the foot. When this band is subjected to repetitive traction stress, microscopic tears develop at the calcaneal insertion, triggering an inflammatory response. The hallmark presentation is sharp, stabbing pain at the heel, characteristically worse with the first steps out of bed in the morning or after prolonged sitting, and often improving as the foot "warms up" during activity.</p>
+          <p>Calcaneal periostitis is a closely related but distinct entity: inflammation of the periosteum (the connective tissue sheath surrounding the heel bone itself) rather than the fascia. It shares many features with plantar fasciitis — inferior heel pain, morning stiffness — but tends to produce a more diffuse tenderness across the calcaneal tuberosity and may be associated with a visible or palpable calcaneal exostosis (heel spur). The two conditions frequently co-exist and are often part of the same pathological spectrum of excessive traction stress at the heel.</p>
+          <p>At EvenKeel, Dr. Santopietro's approach centers on understanding the underlying biomechanical fault driving the overload. Whether it is excessive pronation, tight gastrocnemius-soleus complex, limb-length discrepancy, or a high-arched rigid foot generating excessive impact forces, identifying the root cause — not just managing symptoms — is what leads to lasting resolution and prevents recurrence.</p>
+          <div class="inline-highlight">
+            "The heel spur itself is rarely the pain generator. In fact, studies show heel spurs are present in up to 15–25% of asymptomatic adults. The pain comes from the soft-tissue inflammation at the insertion — which is precisely where biomechanical correction and targeted stretching have their greatest impact."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYMPTOMS -->
+  <section class="alt-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Presentation</div>
+      <h2 class="section-title">Signs &amp; Symptoms</h2>
+      <p class="section-lead">Heel pain from plantar fasciitis and calcaneal periostitis presents in recognizable patterns. Identifying which symptoms you experience helps guide the most effective treatment approach.</p>
+      <div class="symptoms-grid">
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="symptom-title">Morning First-Step Pain</div>
+          <p class="symptom-desc">Sharp, stabbing pain in the heel with the first steps out of bed; often the most reliable diagnostic sign.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="symptom-title">Post-Rest Stiffness</div>
+          <p class="symptom-desc">Pain returns after sitting for extended periods, then gradually eases with walking.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="symptom-title">Inferior Heel Tenderness</div>
+          <p class="symptom-desc">Localized point tenderness at the medial calcaneal tubercle; reproduces the patient's pain.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="symptom-title">Activity-Related Aching</div>
+          <p class="symptom-desc">Dull ache during or after prolonged standing, walking, or running.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="symptom-title">Radiating Arch Discomfort</div>
+          <p class="symptom-desc">Pain may extend along the arch when the plantar fascia is acutely inflamed.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="symptom-title">Swelling or Palpable Spur</div>
+          <p class="symptom-desc">In calcaneal periostitis, mild soft-tissue swelling and a palpable bony prominence may be present.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAUSES & RISK FACTORS -->
+  <section class="content-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Etiology</div>
+      <h2 class="section-title">Causes &amp; Risk Factors</h2>
+      <p class="section-lead">Heel pain is almost always biomechanically driven. Understanding the mechanical fault is the first step toward lasting relief.</p>
+      <div class="causes-grid">
+        <div>
+          <ul class="causes-list">
+            <li>Excessive pronation (flat feet / hypermobile arch) generating traction pull on the fascial insertion</li>
+            <li>Tight gastrocnemius or Achilles tendon limiting ankle dorsiflexion</li>
+            <li>Sudden increase in training volume or intensity (too-much-too-soon)</li>
+            <li>Hard or unsupportive footwear with inadequate cushioning</li>
+            <li>Obesity or rapid weight gain increasing load on the heel</li>
+            <li>Occupations requiring prolonged standing or walking on hard surfaces</li>
+            <li>Rigid, high-arched foot (pes cavus) concentrating impact forces at the heel</li>
+            <li>Age-related degeneration of the heel fat pad reducing natural shock absorption</li>
+          </ul>
+        </div>
+        <div>
+          <div class="risk-card">
+            <div class="risk-card-title">Who Is at Highest Risk</div>
+            <ul>
+              <li>Runners increasing mileage rapidly</li>
+              <li>Middle-aged adults (40–60 most commonly affected)</li>
+              <li>Workers in healthcare, retail, or food service</li>
+              <li>Athletes transitioning to minimalist footwear</li>
+              <li>People with BMI &gt; 30</li>
+              <li>Those with tight calf muscles or limited ankle range of motion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREATMENT -->
+  <section class="treatment-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Our Approach</div>
+      <h2 class="section-title">Treatment at EvenKeel</h2>
+      <p class="section-lead">Dr. Santopietro's treatment protocol addresses the mechanical root cause — not just the symptoms. Here is how care typically unfolds.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Biomechanical Evaluation</div>
+            <p class="step-desc">Dr. Santopietro performs a thorough gait analysis and structural assessment to identify the mechanical driver — whether pronation, supination, equinus deformity, or leg-length discrepancy — before any treatment is prescribed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Custom Functional Orthotics</div>
+            <p class="step-desc">Prescription foot orthoses are the cornerstone of care. They reduce traction stress at the fascial insertion by correcting the biomechanical fault, redistributing pressure, and supporting the medial arch.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Stretching &amp; Physical Therapy</div>
+            <p class="step-desc">A targeted program of plantar fascia stretching and eccentric calf strengthening addresses the muscular tightness that perpetuates the condition. Evidence consistently shows tissue-specific stretching significantly accelerates recovery.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Footwear Guidance</div>
+            <p class="step-desc">Shoe selection is reviewed in detail. Adequate heel cushioning, a supportive counter, and appropriate last shape for the patient's foot type are all factors.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Anti-inflammatory Measures</div>
+            <p class="step-desc">In acute presentations, short-course NSAIDs, ice therapy, and offloading padding provide symptomatic relief while structural correction takes effect.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Monitoring &amp; Follow-Up</div>
+            <p class="step-desc">Most patients achieve substantial improvement within 6–8 weeks. Dr. Santopietro monitors response, adjusts the orthotic prescription as needed, and addresses any secondary conditions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITATIONS -->
+  <section class="citations-section">
+    <div class="content-inner">
+      <div class="section-eyebrow">Evidence Base</div>
+      <h2 class="section-title">Research &amp; References</h2>
+      <div class="citation-list">
+        <div class="citation">
+          <strong>Buchbinder R.</strong> "Plantar fasciitis." <em>N Engl J Med.</em> 2004;350(21):2159–2166.
+        </div>
+        <div class="citation">
+          <strong>Riddle DL, Pulisic M, Pidcoe P, Johnson RE.</strong> "Risk factors for plantar fasciitis: A matched case-control study." <em>J Bone Joint Surg Am.</em> 2003;85(5):872–877.
+        </div>
+        <div class="citation">
+          <strong>DiGiovanni BF, Nawoczenski DA, Lintal ME, et al.</strong> "Tissue-specific plantar fascia-stretching exercise enhances outcomes in patients with chronic heel pain." <em>J Bone Joint Surg Am.</em> 2003;85(7):1270–1277.
+        </div>
+        <div class="citation">
+          <strong>Wearing SC, Smeathers JE, Urry SR, Hennig EM, Hills AP.</strong> "The pathomechanics of plantar fasciitis." <em>Sports Med.</em> 2006;36(7):585–611.
+        </div>
+        <div class="citation">
+          <strong>Wolgin M, Cook C, Graham C, Mauldin D.</strong> "Conservative treatment of plantar heel pain: long-term follow-up." <em>Foot Ankle Int.</em> 1994;15(3):97–102.
+        </div>
+        <div class="citation">
+          <strong>Santopietro FJ.</strong> "Foot and foot-related injuries in the young athlete." <em>Clin Sports Med.</em> 1988;7(3):563–589.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <h2>Ready to Step Past Heel Pain?</h2>
+    <p>Most heel pain resolves with the right conservative plan. Dr. Santopietro has helped patients in Greater Boston find lasting relief for over 50 years.</p>
+    <div class="cta-buttons">
+      <a href="../appointments.html" class="btn-primary">Book an Appointment</a>
+      <a href="tel:6177340003" class="btn-secondary">Call 617.734.0003</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+        <p class="footer-desc">Experts in sports medicine and custom orthotics serving Greater Boston since 1974. Dr. Frank J. Santopietro, D.P.M.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Conditions</div>
+        <ul class="footer-links">
+          <li><a href="heel-pain.html">Heel Pain</a></li>
+          <li><a href="sports-injuries-achilles.html">Sports &amp; Achilles</a></li>
+          <li><a href="bunions-hammertoes.html">Bunions &amp; Hammertoes</a></li>
+          <li><a href="diabetic-foot-care.html">Diabetic Foot Care</a></li>
+          <li><a href="flat-feet-arch-pain.html">Flat Feet &amp; Arch Pain</a></li>
+          <li><a href="pediatric-foot-conditions.html">Pediatric Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Practice</div>
+        <ul class="footer-links">
+          <li><a href="../index.html#doctor">About Dr. Santopietro</a></li>
+          <li><a href="../index.html#orthotics">Custom Orthotics</a></li>
+          <li><a href="../index.html#testimonials">Patient Testimonials</a></li>
+          <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:6177340003">617.734.0003</a></li>
+          <li><a href="mailto:info@evenkeelpodiatry.com">info@evenkeelpodiatry.com</a></li>
+          <li><a href="../appointments.html">Request Appointment</a></li>
+          <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="footer-bottom">
+        <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+        <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobileMenu');
+      var iconOpen = document.getElementById('iconOpen');
+      var iconClose = document.getElementById('iconClose');
+      var links = menu.querySelectorAll('.mobile-link');
+      function closeMenu() {
+        menu.classList.remove('open');
+        iconOpen.style.display = '';
+        iconClose.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        iconOpen.style.display = isOpen ? 'none' : '';
+        iconClose.style.display = isOpen ? '' : 'none';
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+      links.forEach(function(link) { link.addEventListener('click', closeMenu); });
+    })();
+  </script>
+
+</body>
+</html>
