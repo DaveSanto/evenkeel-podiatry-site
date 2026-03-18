@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EvenKeel Podiatry | Sports Medicine & Custom Orthotics | Brookline, MA</title>
+<title>EvenKeel Podiatry | Boston Podiatrist | Sports Medicine & Custom Orthotics | Brookline, MA</title>
+<meta name="description" content="EvenKeel Podiatry — Boston podiatrist Dr. Frank Santopietro specializes in custom orthotics, sports medicine, and foot health for Greater Boston patients since 1974.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -703,6 +704,32 @@
     border-bottom: none !important; display: block;
   }
   .nav-mobile .nav-cta:hover { background: var(--teal-light) !important; }
+  .mobile-accordion-toggle {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.75); font-size: 1rem; font-weight: 500;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s; text-align: left;
+  }
+  .mobile-accordion-toggle:hover { color: var(--white); }
+  .mobile-accordion-toggle svg { width: 14px; height: 14px; stroke: currentColor; transition: transform 0.25s; flex-shrink: 0; }
+  .mobile-accordion-toggle.open svg { transform: rotate(180deg); }
+  .mobile-accordion-toggle.open { color: var(--white); border-bottom-color: transparent; }
+  .mobile-sub {
+    display: none; flex-direction: column;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-bottom: 0.5rem;
+  }
+  .mobile-sub.open { display: flex; }
+  .mobile-sub a {
+    display: block; padding: 0.6rem 0 0.6rem 1rem;
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    font-size: 0.9rem; font-weight: 400;
+    border-bottom: none !important;
+    transition: color 0.2s;
+  }
+  .mobile-sub a:hover { color: var(--white); }
 
   /* ── RESPONSIVE: TABLET (≤1024px) ── */
   @media (max-width: 1024px) {
@@ -795,7 +822,20 @@
     <li><a href="#doctor" class="mobile-link">Dr. Santopietro</a></li>
     <li><a href="#testimonials" class="mobile-link">Reviews</a></li>
     <li><a href="#location" class="mobile-link">Location</a></li>
-    <li><a href="#conditions" class="mobile-link">What We Treat</a></li>
+    <li>
+      <button class="mobile-accordion-toggle" id="conditionsToggle" aria-expanded="false">
+        What We Treat
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="conditionsSub">
+        <a href="conditions/heel-pain.html" class="mobile-link">Heel Pain &amp; Plantar Fasciitis</a>
+        <a href="conditions/sports-injuries-achilles.html" class="mobile-link">Sports Injuries &amp; Achilles</a>
+        <a href="conditions/bunions-hammertoes.html" class="mobile-link">Bunions &amp; Hammertoes</a>
+        <a href="conditions/flat-feet-arch-pain.html" class="mobile-link">Flat Feet &amp; Arch Pain</a>
+        <a href="conditions/diabetic-foot-care.html" class="mobile-link">Diabetic Foot Care</a>
+        <a href="conditions/pediatric-foot-conditions.html" class="mobile-link">Pediatric Foot Conditions</a>
+      </div>
+    </li>
     <li><a href="footwear.html" class="mobile-link">Footwear Guide</a></li>
     <li><a href="#appointment" class="nav-cta mobile-link">Book Appointment</a></li>
   </ul>
@@ -815,7 +855,7 @@
   </div>
   <div class="hero-grid-bg"></div>
   <div class="hero-left">
-    <div class="hero-eyebrow">Sports Medicine & Podiatry · Est. 1974</div>
+    <div class="hero-eyebrow">Boston Podiatrist · Sports Medicine & Custom Orthotics · Est. 1974</div>
     <h1>Walk Better.<br>Move <em>Without Pain.</em><br>Live Fully.</h1>
     <p class="hero-sub">Dr. Frank Santopietro has been restoring foot health for Greater Boston athletes and patients for over 50 years, guided by a <a href="https://patents.google.com/patent/US8667715B2/en" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">patented orthotic system</a> and a philosophy of conservative, lasting care.</p>
     <div class="hero-actions">
@@ -1172,14 +1212,14 @@
 
 <!-- IMAGE BANNER -->
 <div style="height: 320px; overflow: hidden; position: relative;">
-  <img src="https://stockcake.com/i/city-sidewalk-people_1342204_1139567"
-    alt="People walking actively on city sidewalk"
-    style="width:100%; height:100%; object-fit:cover; object-position: center 60%; filter: saturate(0.75);" />
-  <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(13,31,45,0.75) 0%, rgba(13,31,45,0.2) 50%, rgba(13,31,45,0.5) 100%);"></div>
+  <img src="images/bostonSkyLineDavidSantopietro.png"
+    alt="Boston skyline"
+    style="width:100%; height:100%; object-fit:cover; object-position: center center; filter: saturate(0.75);" />
+  <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(13,31,45,0.82) 0%, rgba(13,31,45,0.25) 55%, rgba(13,31,45,0.55) 100%);"></div>
   <div style="position:absolute; inset:0; display:flex; align-items:center; padding: 0 6rem;">
     <div>
-      <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--red-light); margin-bottom:0.75rem;">Greater Boston's Foot Health Experts</div>
-      <div style="font-family:'DM Serif Display',serif; font-size:clamp(1.6rem,3vw,2.4rem); color:white; line-height:1.25; max-width:560px;">Serving runners, walkers, and active people across Brookline, Newton, Wellesley & beyond.</div>
+      <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--red-light); margin-bottom:0.75rem;">Boston Podiatrist · Greater Boston's Foot Health Experts</div>
+      <div style="font-family:'DM Serif Display',serif; font-size:clamp(1.6rem,3vw,2.4rem); color:white; line-height:1.25; max-width:600px;">Serving runners, walkers and active people across Brookline, Boston, Newton, Wellesley &amp; beyond.</div>
     </div>
   </div>
 </div>
@@ -1327,7 +1367,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
-      <p class="footer-desc">Experts in sports medicine and custom orthotics serving Greater Boston since 1974. Dr. Frank J. Santopietro, D.P.M.</p>
+      <p class="footer-desc">Boston podiatrist Dr. Frank J. Santopietro, D.P.M. — experts in custom orthotics and sports medicine serving Greater Boston since 1974.</p>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
@@ -1389,6 +1429,17 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 5000);
+  })();
+
+  // Conditions accordion
+  (function() {
+    var toggle = document.getElementById('conditionsToggle');
+    var sub = document.getElementById('conditionsSub');
+    toggle.addEventListener('click', function() {
+      var open = sub.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
   })();
 
   (function() {
