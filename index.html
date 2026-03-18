@@ -624,6 +624,33 @@
     font-size: 0.75rem; color: rgba(255,255,255,0.3);
   }
 
+  /* ── ORTHO MINI CAROUSEL ── */
+  .ortho-mini-carousel {
+    border-radius: 8px; overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .ortho-mini-slide { display: none; flex-direction: column; }
+  .ortho-mini-slide.active { display: flex; }
+  .ortho-mini-slide img {
+    width: 100%; object-fit: contain; padding: 1.25rem;
+    max-height: 200px; background: rgba(255,255,255,0.02);
+  }
+  .ortho-mini-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.5rem 0.85rem 0.7rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .ortho-mini-caption {
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .ortho-mini-counter {
+    font-size: 0.68rem; color: rgba(255,255,255,0.25);
+    font-variant-numeric: tabular-nums;
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -784,7 +811,7 @@
     <!-- Slide 3: Practice exterior / Brookline -->
     <div class="hero-slide" style="background-image: url('https://evenkeelpodiatry.com/wp-content/uploads/2014/07/evenkeel_location_1180Beacon-Powell_banner2-960x300.jpg'); background-size: cover; background-position: center center;"></div>
     <!-- Slide 4: EvenKeel orthotic device -->
-    <div class="hero-slide" style="background-image: url('images/orthoticDevices/EvenKeel_CM1_Leather_Pro_v.1.1.png'); background-size: contain; background-position: center center; background-repeat: no-repeat;"></div>
+    <div class="hero-slide" style="background-image: url('images/orthoticDevices/EKInsolePro3.png'); background-size: contain; background-position: center center; background-repeat: no-repeat;"></div>
   </div>
   <div class="hero-grid-bg"></div>
   <div class="hero-left">
@@ -1060,15 +1087,22 @@
         </div>
       </div>
       <div style="background: var(--navy); border-radius:12px; padding:3.5rem; display:flex; flex-direction:column; gap:2rem;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; overflow:hidden;">
-            <img src="images/orthoticDevices/EvenKeel_CM1_Leather_Pro_v.1.1.png" alt="EvenKeel CM1 Leather Pro orthotic" style="width:100%; display:block; object-fit:contain; padding:1rem; background:rgba(255,255,255,0.03);" />
-            <div style="font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-align:center; padding:0.6rem 0.75rem 0.8rem;">CM1 Leather Pro</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; overflow:hidden;">
-            <img src="images/orthoticDevices/EvenKeel_CM1_Mesh_Pro_v.1.0.png" alt="EvenKeel CM1 Mesh Pro orthotic" style="width:100%; display:block; object-fit:contain; padding:1rem; background:rgba(255,255,255,0.03);" />
-            <div style="font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-align:center; padding:0.6rem 0.75rem 0.8rem;">CM1 Mesh Pro</div>
-          </div>
+        <div class="ortho-mini-carousel" id="orthoCarousel">
+          <div class="ortho-mini-slide active"><img src="images/orthoticDevices/EKInsolePro1.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">1 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">2 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro3.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">3 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro4.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">4 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro5.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">5 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro6.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">6 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro6.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">7 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro7.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">8 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro7.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">9 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro8.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">10 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro8.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">11 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro9.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">12 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro9.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">13 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EvenKeel_CM1_Leather_Pro_v.1.1.png" alt="EvenKeel CM1 Leather Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Leather Pro</span><span class="ortho-mini-counter">14 / 15</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EvenKeel_CM1_Mesh_Pro_v.1.0.png" alt="EvenKeel CM1 Mesh Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Mesh Pro</span><span class="ortho-mini-counter">15 / 15</span></div></div>
         </div>
         <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:white; line-height:1.3;">
           "His orthotics system has helped patients regain the joy of a <em style='color:var(--teal-light)'>pain-free lifestyle.</em>"
@@ -1334,6 +1368,17 @@
 </footer>
 
 <script>
+  // Orthotics mini carousel
+  (function() {
+    var slides = document.querySelectorAll('#orthoCarousel .ortho-mini-slide');
+    var current = 0;
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 2500);
+  })();
+
   // Hero carousel
   (function() {
     var slides = document.querySelectorAll('.hero-slide');
