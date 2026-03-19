@@ -423,6 +423,21 @@
     transition: background 0.3s;
   }
   .mosaic-item:hover::after { background: rgba(13,31,45,0.05); }
+  .mosaic-caption {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    padding: 1.25rem 1rem 0.9rem;
+    background: linear-gradient(to top, rgba(13,31,45,0.82) 0%, transparent 100%);
+    pointer-events: none;
+  }
+  .mosaic-caption-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.95rem; color: var(--white);
+    line-height: 1.2; margin-bottom: 0.2rem;
+  }
+  .mosaic-caption-sub {
+    font-size: 0.72rem; color: rgba(255,255,255,0.55);
+    font-weight: 400; line-height: 1.4;
+  }
   .mosaic-wide  { grid-column: span 2; }
   .mosaic-header {
     background: var(--navy);
@@ -857,7 +872,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Boston Podiatrist · Sports Medicine & Custom Orthotics · Est. 1974</div>
     <h1>Walk Better.<br>Move <em>Without Pain.</em><br>Live Fully.</h1>
-    <p class="hero-sub">Dr. Frank Santopietro has been restoring foot health in the Greater Boston area for over 50 years, guided by a <a href="https://patents.google.com/patent/US8667715B2/en" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">patented orthotic system</a> and a philosophy of minimally invasive, lasting care.</p>
+    <p class="hero-sub">Dr. Frank Santopietro has spent 50 years asking the same question: why is this person in pain, and what's actually causing it? That curiosity — and a <a href="https://patents.google.com/patent/US8667715B2/en" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">patented orthotic system</a> — has helped thousands of patients get back to the lives they love.</p>
     <div class="hero-actions">
       <a href="#appointment" class="btn-primary">Request an Appointment</a>
       <a href="#orthotics" class="btn-ghost">Learn about EvenKeel Orthotics →</a>
@@ -872,7 +887,7 @@
         <div class="stat-label">Patients Served</div>
        </div>
       <div>
-         <div class="stat-num">1</div>
+        <div class="stat-num">1</div>
         <div class="stat-label"><a href="https://patents.google.com/patent/US8667715B2/en" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Patented Orthotic System</a></div>
       </div>
       <div>
@@ -882,36 +897,24 @@
     </div>
   </div>
   <div class="hero-right" id="conditions">
-    <div class="hero-card">
-      <div class="hero-card-title">What We Treat</div>
-      <ul>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/heel-pain.html">Plantar fasciitis, calcaneal periostitis & other heel pain</a>
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/sports-injuries-achilles.html">Sports injuries & Achilles tendon issues</a>
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/bunions-hammertoes.html">Bunions, hammertoes & structural issues</a>
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/diabetic-foot-care.html">Diabetic foot care & wound management</a>
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/flat-feet-arch-pain.html">Flat feet, arch pain & gait problems</a>
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <a href="conditions/pediatric-foot-conditions.html">Pediatric & adolescent foot conditions</a>
-        </li>
-      </ul>
-      <div class="hero-card-note">
-        📞 Call us at <a href="tel:6177340003">617.734.0003</a> or <a href="#appointment">request online</a>. Most insurance plans accepted.
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <a href="conditions/heel-pain.html" style="display:block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem 1.5rem; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
+        <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-light); margin-bottom:0.4rem;">Most Common</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:0.3rem;">Heel Pain & Plantar Fasciitis</div>
+        <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">The most frequent complaint we see — and one of the most treatable with the right biomechanical approach.</div>
+      </a>
+      <a href="conditions/sports-injuries-achilles.html" style="display:block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem 1.5rem; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
+        <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-light); margin-bottom:0.4rem;">Sports Medicine</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:0.3rem;">Sports Injuries & Achilles</div>
+        <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">From weekend runners to professional athletes — keeping you active, not on the sidelines.</div>
+      </a>
+      <a href="conditions/flat-feet-arch-pain.html" style="display:block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem 1.5rem; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
+        <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-light); margin-bottom:0.4rem;">Structural</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:0.3rem;">Flat Feet & Arch Pain</div>
+        <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">Faulty foot mechanics that cause pain up the chain — knees, hips, lower back — corrected at the source.</div>
+      </a>
+      <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); text-align:center; padding-top:0.25rem;">
+        📞 <a href="tel:6177340003" style="color:rgba(255,255,255,0.45); text-decoration:none;">617.734.0003</a> &nbsp;·&nbsp; <a href="#appointment" style="color:rgba(255,255,255,0.45); text-decoration:none;">Request online →</a>
       </div>
     </div>
   </div>
@@ -1062,21 +1065,45 @@
 <div class="sports-mosaic">
   <div class="mosaic-item mosaic-wide">
     <img src="images/golf1.jpeg" alt="Golfer on the course" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Golfers</div>
+      <div class="mosaic-caption-sub">Hip rotation starts at the foot. Gait imbalances can cost you distance and lead to chronic knee and back pain.</div>
+    </div>
   </div>
   <div class="mosaic-item">
     <img src="images/tennis1.jpeg" alt="Tennis player in action" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Tennis Players</div>
+      <div class="mosaic-caption-sub">Lateral cuts and hard stops put the Achilles and plantar fascia under constant stress.</div>
+    </div>
   </div>
   <div class="mosaic-item">
     <img src="images/crossCountrySki1.jpeg" alt="Cross-country skiing" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Skiers</div>
+      <div class="mosaic-caption-sub">Ski boots can't compensate for poor foot mechanics — orthotics designed for the boot make a real difference.</div>
+    </div>
   </div>
   <div class="mosaic-item">
     <img src="images/soccer1.jpeg" alt="Soccer players" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Soccer Players</div>
+      <div class="mosaic-caption-sub">Turf toe, ankle sprains, and stress fractures are common — and often preventable with the right support.</div>
+    </div>
   </div>
   <div class="mosaic-item">
     <img src="images/football1.jpeg" alt="Football players" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Football Players</div>
+      <div class="mosaic-caption-sub">Dr. Santopietro served as team podiatrist for the New England Patriots for 25 years.</div>
+    </div>
   </div>
   <div class="mosaic-item mosaic-wide">
     <img src="images/hockey1.jpeg" alt="Hockey players on the ice" />
+    <div class="mosaic-caption">
+      <div class="mosaic-caption-title">Hockey Players</div>
+      <div class="mosaic-caption-sub">Skate fit and foot alignment work together — imbalances show up fast on the ice.</div>
+    </div>
   </div>
 </div>
 
@@ -1164,21 +1191,11 @@
       </div>
       <div style="background: var(--navy); border-radius:12px; padding:3.5rem; display:flex; flex-direction:column; gap:2rem;">
         <div class="ortho-mini-carousel" id="orthoCarousel">
-          <div class="ortho-mini-slide active"><img src="images/orthoticDevices/EKInsolePro1.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">1 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">2 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro3.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">3 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro4.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">4 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro5.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">5 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro6.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">6 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro6.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">7 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro7.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">8 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro7.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">9 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro8.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">10 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro8.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">11 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro9.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">12 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro9.2.png" alt="EvenKeel custom orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EvenKeel Custom Orthotic</span><span class="ortho-mini-counter">13 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EvenKeel_CM1_Leather_Pro_v.1.1.png" alt="EvenKeel CM1 Leather Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Leather Pro</span><span class="ortho-mini-counter">14 / 15</span></div></div>
-          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EvenKeel_CM1_Mesh_Pro_v.1.0.png" alt="EvenKeel CM1 Mesh Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Mesh Pro</span><span class="ortho-mini-counter">15 / 15</span></div></div>
+          <div class="ortho-mini-slide active"><img src="images/orthoticDevices/EvenKeel_CM1_Leather_Pro_v.1.1.png" alt="EvenKeel CM1 Leather Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Leather Pro</span><span class="ortho-mini-counter">1 / 5</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EvenKeel_CM1_Mesh_Pro_v.1.0.png" alt="EvenKeel CM1 Mesh Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">CM1 Mesh Pro</span><span class="ortho-mini-counter">2 / 5</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro1.png" alt="EvenKeel EK Insole Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EK Insole Pro — Top View</span><span class="ortho-mini-counter">3 / 5</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro6.png" alt="EvenKeel EK Insole Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EK Insole Pro — Side Profile</span><span class="ortho-mini-counter">4 / 5</span></div></div>
+          <div class="ortho-mini-slide"><img src="images/orthoticDevices/EKInsolePro9.png" alt="EvenKeel EK Insole Pro orthotic" /><div class="ortho-mini-footer"><span class="ortho-mini-caption">EK Insole Pro — Bottom</span><span class="ortho-mini-counter">5 / 5</span></div></div>
         </div>
         <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:white; line-height:1.3;">
           "His orthotics system has helped patients regain the joy of a <em style='color:var(--teal-light)'>pain-free lifestyle.</em>"
@@ -1207,9 +1224,9 @@
           </div>
         </div>
         <div style="background:rgba(42,127,127,0.15); border:1px solid rgba(42,127,127,0.3); border-radius:8px; padding:1.25rem;">
-          <div style="font-size:0.8rem; color:rgba(255,255,255,0.6); line-height:1.6;">
-            <strong style="color:white; display:block; margin-bottom:0.3rem;">💡 Did you know?</strong>
-            Patients pay directly for custom orthotics. No insurance delays, no pre-authorizations, just the right solution for your feet. HSA and FSA accepted.
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.75); line-height:1.6;">
+            <strong style="color:var(--teal-light); display:block; margin-bottom:0.4rem; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;">Direct Pay · No Insurance Delays</strong>
+            EvenKeel orthotics are paid directly — no pre-authorizations, no compromises, no waiting on an insurer to approve the right solution for your feet. HSA and FSA accepted.
           </div>
         </div>
       </div>
@@ -1239,11 +1256,6 @@
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"What a sigh of relief when he told me that he always uses conservative methods before resorting to surgery. I left feeling heard and cared for."</p>
-        <div class="testimonial-author">Peter</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Dr. Santopietro's skills honestly changed my youngest son's life. His expertise made many physical things possible for Kyle that would not have been otherwise — opportunities that brought him happiness and real confidence."</p>
         <div class="testimonial-author">Amy D</div>
       </div>
@@ -1251,6 +1263,11 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Over the years, Dr. Santopietro's treatment has spared me from pain pills, cortisone injections, and even surgery. I had a partially torn Achilles — he managed it brilliantly. I've been running better ever since."</p>
         <div class="testimonial-author">Jose G.</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"What a sigh of relief when he told me that he always uses conservative methods before resorting to surgery. I left feeling heard and cared for."</p>
+        <div class="testimonial-author">Peter</div>
       </div>
     </div>
   </div>
@@ -1314,7 +1331,8 @@
             <div class="location-label">Office Hours</div>
             <div class="location-value">
               Tuesday – Thursday: 8:00 AM – 3:30 PM<br>
-              Friday – Monday: Closed
+              Friday – Monday: Closed<br>
+              <span style="font-size:0.8rem; color:var(--stone); font-style:italic;">Dr. Santopietro keeps a focused schedule to ensure each patient receives unhurried, attentive care.</span>
             </div>
           </div>
         </div>
