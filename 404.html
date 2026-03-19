@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | EvenKeel Podiatry</title>
+  <meta name="robots" content="noindex" />
+  <!-- Redirect to homepage after 3 seconds -->
+  <meta http-equiv="refresh" content="3;url=https://evenkeelpodiatry.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0d1f2d;
+      color: #f5f0e8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      color: #f5f0e8;
+      margin-bottom: 2.5rem;
+      opacity: 0.7;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      color: #f5f0e8;
+    }
+    p {
+      font-size: 1.05rem;
+      color: rgba(245,240,232,0.7);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .redirect-note {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 2rem;
+    }
+    a.btn {
+      display: inline-block;
+      background: #2a7f7f;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    a.btn:hover { background: #3a9e9e; }
+  </style>
+</head>
+<body>
+  <div class="logo">EvenKeel Podiatry</div>
+  <h1>Page Not Found</h1>
+  <p>This page may have moved when we updated our website.</p>
+  <p class="redirect-note">Taking you to our homepage in a moment&hellip;</p>
+  <a class="btn" href="https://evenkeelpodiatry.com/">Go to Homepage</a>
+
+  <script>
+    // Immediate JS redirect as backup (faster than meta refresh)
+    setTimeout(function() {
+      window.location.href = 'https://evenkeelpodiatry.com/';
+    }, 3000);
+  </script>
+</body>
+</html>
