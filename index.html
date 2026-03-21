@@ -110,6 +110,11 @@
     opacity: 0; transition: opacity 1.4s ease;
   }
   .hero-slide.active { opacity: 0.14; }
+  .hero-slide.mobile-only { display: none; }
+  @media (max-width: 767px) {
+    .hero-slide.desktop-only { display: none; }
+    .hero-slide.mobile-only { display: block; }
+  }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -863,14 +868,20 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-carousel">
-    <!-- Slide 1: Boston skyline -->
-    <div class="hero-slide" style="background-image: url('images/bostonSkyLineDavidSantopietro.png');"></div>
-    <!-- Slide 2: Golf -->
-    <div class="hero-slide" style="background-image: url('images/golf1.jpeg');"></div>
-    <!-- Slide 3: Practice exterior / Brookline -->
-    <div class="hero-slide" style="background-image: url('images/evenkeel_location_1180Beacon-Powell_banner2.jpg'); background-size: cover; background-position: center center;"></div>
-    <!-- Slide 4: EvenKeel orthotic device -->
-    <div class="hero-slide" style="background-image: url('images/orthoticDevices/EKInsolePro3.png'); background-size: contain; background-position: center center; background-repeat: no-repeat;"></div>
+    <!-- Desktop slides -->
+    <div class="hero-slide desktop-only" style="background-image: url('images/bostonSkyLineDavidSantopietro.png');"></div>
+    <div class="hero-slide desktop-only" style="background-image: url('images/golf1.jpeg');"></div>
+    <div class="hero-slide desktop-only" style="background-image: url('images/evenkeel_location_1180Beacon-Powell_banner2.jpg'); background-size: cover; background-position: center center;"></div>
+    <div class="hero-slide desktop-only" style="background-image: url('images/orthoticDevices/EKInsolePro3.png'); background-size: cover; background-position: center center;"></div>
+    <!-- Mobile-only slides -->
+    <div class="hero-slide mobile-only" style="background-image: url('images/cuteKids1.jpeg'); background-position: top center;"></div>
+    <div class="hero-slide mobile-only" style="background-image: url('images/roadRace1.jpeg'); background-position: top center;"></div>
+    <div class="hero-slide mobile-only">
+      <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <source src="images/athletics/EvenKeel_Stock_tying_shoes_getting_ready_AS_.mp4" type="video/mp4">
+        <source src="images/athletics/EvenKeel_Stock_tying_shoes_getting_ready_AS_.mov" type="video/quicktime">
+      </video>
+    </div>
   </div>
   <div class="hero-grid-bg"></div>
   <div class="hero-left">
@@ -1442,7 +1453,10 @@
 
   // Hero carousel
   (function() {
-    var slides = document.querySelectorAll('.hero-slide');
+    var isMobile = window.innerWidth < 768;
+    var slides = Array.from(document.querySelectorAll(
+      isMobile ? '.hero-slide.mobile-only' : '.hero-slide.desktop-only'
+    ));
     var current = 0;
     slides[0].classList.add('active');
     setInterval(function() {
