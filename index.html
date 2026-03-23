@@ -518,21 +518,62 @@
   .testimonial-card {
     background: var(--white); border-radius: 8px;
     padding: 2rem; border: 1px solid var(--border);
-    display: flex; flex-direction: column;
+    display: flex; flex-direction: column; cursor: default;
   }
   .stars {
     color: #f4b400; font-size: 0.9rem; letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem; flex-shrink: 0;
   }
   .testimonial-text {
     font-size: 0.9rem; color: var(--text); line-height: 1.75;
-    margin-bottom: 1.5rem; font-style: italic; flex: 1;
+    margin-bottom: 1rem; font-style: italic;
+    display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;
+    overflow: hidden;
   }
+  .testimonial-readmore {
+    font-size: 0.78rem; color: var(--teal); font-weight: 600;
+    background: none; border: none; padding: 0; cursor: pointer;
+    margin-bottom: 1.25rem; text-align: left;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .testimonial-readmore:hover { color: var(--teal-light); }
   .testimonial-footer {
     display: flex; align-items: center; justify-content: space-between;
     margin-top: auto;
   }
   .testimonial-author {
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  /* Review modal */
+  .review-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    background: rgba(13,31,45,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 1.5rem;
+  }
+  .review-modal-overlay.open { display: flex; }
+  .review-modal {
+    background: var(--white); border-radius: 12px; padding: 2.5rem;
+    max-width: 560px; width: 100%; position: relative;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .review-modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 1.4rem; cursor: pointer;
+    color: var(--muted); line-height: 1; padding: 0.25rem 0.5rem;
+    border-radius: 4px; transition: background 0.15s;
+  }
+  .review-modal-close:hover { background: var(--sand); }
+  .review-modal .stars { margin-bottom: 1rem; }
+  .review-modal-text {
+    font-size: 0.95rem; color: var(--text); line-height: 1.8;
+    font-style: italic; margin-bottom: 1.5rem;
+  }
+  .review-modal-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border); padding-top: 1rem;
+  }
+  .review-modal-author {
     font-size: 0.8rem; font-weight: 600; color: var(--navy);
     text-transform: uppercase; letter-spacing: 0.06em;
   }
@@ -1333,102 +1374,118 @@
     <h2 class="section-title">What Our Patients Say</h2>
     <div class="testimonials-grid">
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;Dr. Santopietro's skills honestly changed my youngest son's life. His expertise made many physical things possible for Kyle that would not have been otherwise — opportunities that brought him happiness and real confidence.&quot;" data-author="Amy D." data-badge="">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Dr. Santopietro's skills honestly changed my youngest son's life. His expertise made many physical things possible for Kyle that would not have been otherwise — opportunities that brought him happiness and real confidence."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-author">Amy D.</div>
-        </div>
+        <button class="testimonial-readmore">Read more →</button>
+        <div class="testimonial-footer"><div class="testimonial-author">Amy D.</div></div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;Over the years, Dr. Santopietro's treatment has spared me from pain pills, cortisone injections, and even surgery. I had a partially torn Achilles — he managed it brilliantly. I've been running better ever since.&quot;" data-author="Jose G." data-badge="">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Over the years, Dr. Santopietro's treatment has spared me from pain pills, cortisone injections, and even surgery. I had a partially torn Achilles — he managed it brilliantly. I've been running better ever since."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-author">Jose G.</div>
-        </div>
+        <button class="testimonial-readmore">Read more →</button>
+        <div class="testimonial-footer"><div class="testimonial-author">Jose G.</div></div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;What a sigh of relief when he told me that he always uses conservative methods before resorting to surgery. I left feeling heard and cared for.&quot;" data-author="Peter" data-badge="">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"What a sigh of relief when he told me that he always uses conservative methods before resorting to surgery. I left feeling heard and cared for."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-author">Peter</div>
-        </div>
+        <button class="testimonial-readmore">Read more →</button>
+        <div class="testimonial-footer"><div class="testimonial-author">Peter</div></div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;I had explored various options to alleviate the pain in my left foot, but none proved effective. Within just three months of following Dr. Santopietro's advice, I was able to resume walking without any pain. Fast forward a year — zero foot pain and nothing but contentment with my newfound comfort. Whether you are dealing with foot pain or simply seeking improved support, I highly recommend giving Dr. Santopietro an opportunity to showcase the transformative solutions he can offer.&quot;" data-author="Justin T." data-badge="google" data-link="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,,">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"I had explored various options to alleviate the pain in my left foot, but none proved effective. Within just three months of following Dr. Santopietro's advice, I was able to resume walking without any pain. Fast forward a year — zero foot pain and nothing but contentment with my newfound comfort."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">Justin T.</div>
           <a href="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,," target="_blank" rel="noopener" class="review-badge google"><span class="review-badge-dot"></span>Google</a>
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;Frank Santopietro has been making the perfect orthotics for my strangely shaped feet for a number of years and his inserts have made a wonderful difference in the way I walk. I am more stable and comfortable than before. I recommend him and his staff without reservation.&quot;" data-author="Peggy R." data-badge="google" data-link="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,,">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Frank Santopietro has been making the perfect orthotics for my strangely shaped feet for a number of years and his inserts have made a wonderful difference in the way I walk. I am more stable and comfortable than before. I recommend him and his staff without reservation."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">Peggy R.</div>
           <a href="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,," target="_blank" rel="noopener" class="review-badge google"><span class="review-badge-dot"></span>Google</a>
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;I thought I could never play volleyball or walk pain free again. I could not believe the difference his orthotics made — immediately I could bend my knee normally again. I now own 4 pairs: walking shoes, home shoes, indoor volleyball, and outdoor volleyball. One thing to note: you may have to switch to Brooks shoes which are wider and better accommodate his orthotics. Once I switched the difference was amazing. A true lifesaver.&quot;" data-author="Frank W." data-badge="google" data-link="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,,">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"I thought I could never play volleyball or walk pain free again. I could not believe the difference his orthotics made — immediately I could bend my knee normally again. I now own 4 pairs for walking shoes, home shoes, indoor volleyball, and outdoor volleyball. A true lifesaver."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">Frank W.</div>
           <a href="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,," target="_blank" rel="noopener" class="review-badge google"><span class="review-badge-dot"></span>Google</a>
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;My gait used to be strained and now I can walk, run, and hike correctly thanks to his orthotics. He has also helped me successfully treat my toenail issues. It sounds like some people disagree with his treatment plan — but if you are not committed to following through, he is not the doctor for you. I have found that he is very knowledgeable and does his best to help each patient.&quot;" data-author="Mary W." data-badge="google" data-link="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,,">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"My gait used to be strained and now I can walk, run, and hike correctly thanks to his orthotics. It sounds like some people disagree with his treatment plan — but if you are not committed to following through, he is not the doctor for you. I have found that he is very knowledgeable and does his best to help each patient."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">Mary W.</div>
           <a href="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,," target="_blank" rel="noopener" class="review-badge google"><span class="review-badge-dot"></span>Google</a>
         </div>
       </div>
 
-    </div>
-
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;Dr. Santopietro and his staff are friendly and engaging. The positive Yelp reviews were all true! My 85-year-old mom with RA and I have visited three times to fit and pick up her orthotics. What a blessing! Mom is stabilized and walking so much better — I am booking appointments for myself and my dad!&quot;" data-author="David L." data-badge="yelp" data-link="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=S3-NTL8TxU6kNsC5fNF8EA&utm_medium=copy_link&utm_source=biz_post_share&l=en_US">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Dr. Santopietro and his staff are friendly and engaging. My 85-year-old mom with RA and I have visited three times to fit and pick up her orthotics. What a blessing! Mom is stabilized and walking so much better — I am booking appointments for myself and my dad!"</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">David L.</div>
           <a href="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=S3-NTL8TxU6kNsC5fNF8EA&utm_medium=copy_link&utm_source=biz_post_share&l=en_US" target="_blank" rel="noopener" class="review-badge yelp"><span class="review-badge-dot"></span>Yelp</a>
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;I literally would not be walking without pain if it weren't for his amazing orthotics and careful attention to adjustments. Mary Lou, his wife, makes you feel like you just came home. Nadine rounds out the team with precision and a friendly manner. I've seen him for 10 years after a rock climbing accident that left me largely unable to walk for almost 3 years. They are the best.&quot;" data-author="Tara C. · 10-year patient" data-badge="yelp" data-link="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=KHDsJ9cpc47cTJMqHq22MA&utm_medium=copy_link&utm_source=biz_post_share&l=en_US">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I literally would not be walking without pain if it weren't for his amazing orthotics and careful attention to adjustments. Mary Lou, his wife, makes you feel like you just came home. Nadine rounds out the team with precision and a friendly manner. I've seen him for 10 years after a rock climbing accident that left me largely unable to walk for almost 3 years. They are the best."</p>
+        <p class="testimonial-text">"I literally would not be walking without pain if it weren't for his amazing orthotics and careful attention to adjustments. Mary Lou, his wife, makes you feel like you just came home. Nadine rounds out the team with precision and a friendly manner. I've seen him for 10 years after a rock climbing accident that left me largely unable to walk for almost 3 years."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
-          <div class="testimonial-author">Tara C. <span style="font-weight:400; color:var(--muted); font-size:0.72rem;">· 10-year patient</span></div>
+          <div class="testimonial-author">Tara C. <span style="font-weight:400;color:var(--muted);font-size:0.72rem;">· 10-year patient</span></div>
           <a href="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=KHDsJ9cpc47cTJMqHq22MA&utm_medium=copy_link&utm_source=biz_post_share&l=en_US" target="_blank" rel="noopener" class="review-badge yelp"><span class="review-badge-dot"></span>Yelp</a>
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-full="&quot;I went to Dr. Santopietro after having no luck with orthotics from another podiatrist and years of trying over-the-counter orthotics with hip problems exacerbated by foot problems. Dr. Santopietro is very welcoming, knowledgeable, and personable, and his expertise is unmatched. His orthotics have made a huge difference in the short time that I've had them and my hip feels better than ever.&quot;" data-author="Michael D." data-badge="yelp" data-link="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=wwBqa4ejHTJONUPMjTexPQ&utm_medium=copy_link&utm_source=biz_post_share&l=en_US">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"I went to Dr. Santopietro after years of trying over-the-counter orthotics and having hip problems exacerbated by foot problems. His expertise is unmatched. His orthotics have made a huge difference in a short time and my hip feels better than ever."</p>
+        <button class="testimonial-readmore">Read more →</button>
         <div class="testimonial-footer">
           <div class="testimonial-author">Michael D.</div>
           <a href="https://yelp.com/biz/frank-j-santopietro-dpm-brookline?hrid=wwBqa4ejHTJONUPMjTexPQ&utm_medium=copy_link&utm_source=biz_post_share&l=en_US" target="_blank" rel="noopener" class="review-badge yelp"><span class="review-badge-dot"></span>Yelp</a>
         </div>
       </div>
 
+    </div>
+
     <div class="review-platform-row">
       <a href="https://www.google.com/search?q=frank+santopietro#lrd=0x89e379ec98b559b3:0x4bcfdee50c24eb68,1,,,," target="_blank" rel="noopener" class="review-platform-link google">Read our Google Reviews →</a>
       <a href="https://www.yelp.com/biz/frank-j-santopietro-dpm-brookline" target="_blank" rel="noopener" class="review-platform-link yelp">Read our Yelp Reviews →</a>
     </div>
-
   </div>
 </section>
+
+<!-- REVIEW MODAL -->
+<div class="review-modal-overlay" id="reviewModal" role="dialog" aria-modal="true">
+  <div class="review-modal">
+    <button class="review-modal-close" id="reviewModalClose" aria-label="Close">✕</button>
+    <div class="stars">★★★★★</div>
+    <p class="review-modal-text" id="reviewModalText"></p>
+    <div class="review-modal-footer">
+      <div class="review-modal-author" id="reviewModalAuthor"></div>
+      <a id="reviewModalBadge" href="#" target="_blank" rel="noopener" class="review-badge"></a>
+    </div>
+  </div>
+</div>
 
 <!-- CTA BAND -->
 <div class="cta-band" id="appointment">
@@ -1607,6 +1664,47 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 5000);
+  })();
+
+  // Review modal
+  (function() {
+    var overlay = document.getElementById('reviewModal');
+    var modalText = document.getElementById('reviewModalText');
+    var modalAuthor = document.getElementById('reviewModalAuthor');
+    var modalBadge = document.getElementById('reviewModalBadge');
+    var closeBtn = document.getElementById('reviewModalClose');
+
+    document.querySelectorAll('.testimonial-readmore').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.testimonial-card');
+        modalText.textContent = card.dataset.full;
+        modalAuthor.textContent = card.dataset.author;
+        var badge = card.dataset.badge;
+        var link = card.dataset.link;
+        if (badge) {
+          modalBadge.className = 'review-badge ' + badge;
+          modalBadge.innerHTML = '<span class="review-badge-dot"></span>' + (badge === 'google' ? 'Google' : 'Yelp');
+          modalBadge.href = link || '#';
+          modalBadge.style.display = 'inline-flex';
+        } else {
+          modalBadge.style.display = 'none';
+        }
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
   })();
 
   // Conditions accordion
