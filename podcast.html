@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walk Happy Podcast | EvenKeel Podiatry | Dr. Frank Santopietro</title>
+<meta name="description" content="The Walk Happy Podcast with Dr. Frank Santopietro — biomechanics, foot health, and the stories behind 50 years of helping people move without pain.">
+<!-- Not linked from nav until first episode is published -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1f2d; --navy-mid: #1a3347; --teal: #2a7f7f; --teal-light: #3a9e9e;
+    --teal-pale: #e8f5f5; --sand: #f5f0e8; --stone: #8a9ba8; --text: #1a2a35;
+    --muted: #5a7080; --white: #ffffff; --border: #d8e4ea;
+    --red: #c00000; --red-light: #d42020; --red-pale: #fdf0f0;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13,31,45,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 68px; }
+  .nav-logo { font-family: 'DM Sans', sans-serif; color: var(--white); text-decoration: none; display: flex; align-items: baseline; }
+  .nav-logo-brand { font-family: 'Josefin Sans', sans-serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: 0.04em; }
+  .nav-logo-brand span { color: var(--red-light); }
+  .nav-logo-suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; margin-left: 0.4rem; text-transform: uppercase; align-self: center; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--teal-light) !important; }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--white); }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: rgba(13,31,45,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem 1.5rem; }
+  .nav-mobile.open { display: block; }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+  .nav-mobile li a { display: block; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nav-mobile .nav-cta { margin-top: 1rem; background: var(--teal); text-align: center; border-radius: 4px; padding: 0.9rem !important; font-weight: 600 !important; border-bottom: none !important; display: block; }
+
+  /* PAGE HEADER */
+  .page-header { background: var(--navy); padding: 9rem 2rem 5rem; position: relative; overflow: hidden; }
+  .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%); pointer-events: none; }
+  .page-header-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: center; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+  .page-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--teal-light); }
+  .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+  .page-header-sub { color: rgba(255,255,255,0.55); font-size: 1rem; font-weight: 300; max-width: 560px; line-height: 1.7; margin-bottom: 2rem; }
+
+  /* PODCAST COVER ART placeholder */
+  .podcast-cover { background: linear-gradient(135deg, var(--navy-mid) 0%, #0d3347 100%); border-radius: 16px; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem; }
+  .podcast-cover-logo { font-family: 'Josefin Sans', sans-serif; font-size: 1.4rem; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+  .podcast-cover-logo span { color: var(--red-light); }
+  .podcast-cover-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); text-align: center; line-height: 1.2; margin: 1.25rem 0 0.5rem; }
+  .podcast-cover-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; text-transform: uppercase; letter-spacing: 0.1em; }
+  .podcast-wave { display: flex; gap: 4px; align-items: flex-end; margin: 1.5rem 0; height: 36px; }
+  .podcast-wave span { display: block; width: 4px; background: var(--teal); border-radius: 2px; animation: wave 1.2s ease-in-out infinite; }
+  .podcast-wave span:nth-child(2) { animation-delay: 0.1s; }
+  .podcast-wave span:nth-child(3) { animation-delay: 0.2s; }
+  .podcast-wave span:nth-child(4) { animation-delay: 0.3s; }
+  .podcast-wave span:nth-child(5) { animation-delay: 0.4s; }
+  .podcast-wave span:nth-child(6) { animation-delay: 0.3s; }
+  .podcast-wave span:nth-child(7) { animation-delay: 0.2s; }
+  .podcast-wave span:nth-child(8) { animation-delay: 0.1s; }
+  @keyframes wave {
+    0%, 100% { height: 8px; opacity: 0.4; }
+    50% { height: 32px; opacity: 1; }
+  }
+
+  /* COMING SOON */
+  .coming-soon { background: rgba(42,127,127,0.08); border: 1px solid rgba(42,127,127,0.2); border-radius: 8px; padding: 1rem 1.25rem; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--teal-light); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* SECTIONS */
+  .section { padding: 5rem 2rem; }
+  .section.alt { background: var(--sand); }
+  .section.dark { background: var(--navy); }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+  .section-eyebrow.light { color: var(--teal-light); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 2.5vw, 2.2rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.25rem; }
+  .section-title.light { color: var(--white); }
+  .section-lead { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 720px; }
+  .section-lead.light { color: rgba(255,255,255,0.55); }
+
+  /* TOPICS */
+  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .topic-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+  .topic-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .topic-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.35rem; }
+  .topic-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+  /* EPISODES PLACEHOLDER */
+  .episodes-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 2rem; text-align: center; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.12); border-radius: 12px; margin-top: 2.5rem; }
+  .episodes-placeholder-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5; }
+  .episodes-placeholder-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
+  .episodes-placeholder-sub { font-size: 0.85rem; color: rgba(255,255,255,0.3); max-width: 400px; line-height: 1.7; }
+
+  /* NOTIFY FORM */
+  .notify-form { display: flex; gap: 0.75rem; max-width: 440px; margin-top: 2rem; }
+  .notify-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 0.75rem 1rem; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; }
+  .notify-form input::placeholder { color: rgba(255,255,255,0.3); }
+  .notify-form input:focus { border-color: var(--teal-light); }
+  .notify-form button { background: var(--teal); color: var(--white); border: none; border-radius: 6px; padding: 0.75rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+  .notify-form button:hover { background: var(--teal-light); }
+  .notify-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 0.6rem; }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 4rem 2rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .footer-brand-name { font-family: 'Josefin Sans', sans-serif; font-size: 1.2rem; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+  .footer-brand-name .suffix { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.3rem; }
+  .footer-desc { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 280px; }
+  .footer-col-title { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { padding: 1.5rem 0; display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 1024px) {
+    .page-header-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .podcast-cover { max-width: 280px; }
+    .topics-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 767px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .notify-form { flex-direction: column; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">even<span>keel</span></span>
+      <span class="nav-logo-suffix">Podiatry</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#doctor">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="footwear.html">Footwear Guide</a></li>
+      <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#doctor">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="footwear.html">Footwear Guide</a></li>
+    <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid-bg"></div>
+  <div class="page-header-inner">
+    <div>
+      <div class="page-eyebrow">Podcast · EvenKeel Podiatry</div>
+      <h1>Walk Happy</h1>
+      <p class="page-header-sub">A podcast about biomechanics, foot health, and the stories behind 50 years of helping people move without pain. Hosted by Dr. Frank Santopietro and his son David.</p>
+      <div class="coming-soon">🎙 First episode coming soon</div>
+    </div>
+    <div class="podcast-cover">
+      <div class="podcast-cover-logo">even<span>keel</span></div>
+      <div class="podcast-wave">
+        <span style="height:12px"></span>
+        <span style="height:20px"></span>
+        <span style="height:28px"></span>
+        <span style="height:36px"></span>
+        <span style="height:24px"></span>
+        <span style="height:32px"></span>
+        <span style="height:18px"></span>
+        <span style="height:10px"></span>
+      </div>
+      <div class="podcast-cover-title">Walk Happy</div>
+      <div class="podcast-cover-sub">with Dr. Frank Santopietro</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT THE PODCAST IS ABOUT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">About the Show</div>
+    <h2 class="section-title">Fifty Years of Foot Stories</h2>
+    <p class="section-lead">Dr. Frank Santopietro has been asking the same question since 1974: why is this person in pain, and what's actually causing it? Walk Happy brings those conversations out of the exam room — covering biomechanics, orthotics, sports medicine, footwear, and the surprisingly complex connection between your feet and the rest of your body.</p>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-icon">🦶</div>
+        <div class="topic-title">Biomechanics, Explained Simply</div>
+        <div class="topic-desc">Why flat feet cause hip pain, how gait patterns change over a lifetime, and what most people never learn about how their feet actually work.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🏈</div>
+        <div class="topic-title">Stories from the Sideline</div>
+        <div class="topic-desc">25 years as team podiatrist for the New England Patriots. What elite athletes have in common with your neighbor who can't walk to the mailbox without pain.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">👟</div>
+        <div class="topic-title">Footwear Deep Dives</div>
+        <div class="topic-desc">Why the shoe you buy at a running store may be making your problem worse — and what to actually look for when choosing footwear for your foot type.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🔬</div>
+        <div class="topic-title">The Science of Custom Orthotics</div>
+        <div class="topic-desc">How the EvenKeel patented orthotic system was developed, what separates a real custom orthotic from a $40 insert, and what the research actually says.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">👶</div>
+        <div class="topic-title">Kids and Foot Development</div>
+        <div class="topic-desc">When to worry about a child's gait, what "growing pains" actually means, and why early intervention changes outcomes dramatically.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🤝</div>
+        <div class="topic-title">Practitioner Perspectives</div>
+        <div class="topic-desc">Conversations with physical therapists, orthopedic surgeons, and sports medicine doctors on how foot mechanics intersect with their specialties.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODES (placeholder) -->
+<section class="section dark">
+  <div class="section-inner">
+    <div class="section-eyebrow light">Episodes</div>
+    <h2 class="section-title light">Episodes</h2>
+    <div class="episodes-placeholder">
+      <div class="episodes-placeholder-icon">🎙</div>
+      <div class="episodes-placeholder-title">First Episode in the Works</div>
+      <p class="episodes-placeholder-sub">We're recording our first episode now. Enter your email below and we'll let you know the moment it drops.</p>
+    </div>
+    <form class="notify-form" id="notifyForm">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="notify-note" id="notifyConfirm" style="display:none; color:var(--teal-light);">You're on the list. We'll be in touch.</p>
+    <p class="notify-note">No spam. One email when the first episode is live.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+      <p class="footer-desc">Boston podiatrist Dr. Frank J. Santopietro, D.P.M. — custom orthotics and sports medicine serving Greater Boston since 1974.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="index.html#orthotics">Custom Orthotics</a></li>
+        <li><a href="index.html#services">Sports Medicine</a></li>
+        <li><a href="index.html#services">Diabetic Foot Care</a></li>
+        <li><a href="index.html#services">Pediatric Podiatry</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice</div>
+      <ul class="footer-links">
+        <li><a href="index.html#doctor">About Dr. Santopietro</a></li>
+        <li><a href="biomechanics-course.html">Practitioner Course</a></li>
+        <li><a href="footwear.html">Footwear Guide</a></li>
+        <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:6177340003">617.734.0003</a></li>
+        <li><a href="mailto:info@evenkeelpodiatry.com">info@evenkeelpodiatry.com</a></li>
+        <li><a href="appointments.html">Request Appointment</a></li>
+        <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-bottom">
+      <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+      <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navMobile').classList.toggle('open');
+  });
+  document.getElementById('notifyForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('notifyConfirm').style.display = 'block';
+  });
+</script>
+</body>
+</html>
