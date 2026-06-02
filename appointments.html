@@ -708,9 +708,14 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
+    const firstName = (this.querySelector('#firstName').value || '').trim();
+    const lastName  = (this.querySelector('#lastName').value  || '').trim();
+    const patientName = [firstName, lastName].filter(Boolean).join(' ') || 'New Patient';
+
     const formData = new FormData(this);
     formData.append('access_key', '3ce3423c-ea79-40eb-8367-e00c84c93cab');
-    formData.append('subject', 'New Appointment Request — EvenKeel Podiatry');
+    formData.append('subject', 'New Appointment Request — ' + patientName);
+    formData.append('from_name', 'EvenKeel Podiatry Website');
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
