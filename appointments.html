@@ -690,7 +690,7 @@
 </footer>
 
 <script>
-  document.getElementById('apptForm').addEventListener('submit', function(e) {
+  document.getElementById('apptForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const required = this.querySelectorAll('[required]');
     let valid = true;
@@ -703,8 +703,31 @@
       }
     });
     if (!valid) return;
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+
+    const btn = this.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const formData = new FormData(this);
+    formData.append('access_key', '3ce3423c-ea79-40eb-8367-e00c84c93cab');
+    formData.append('subject', 'New Appointment Request — EvenKeel Podiatry');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        this.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Appointment Request →';
+        alert('Something went wrong. Please call us at 617.734.0003 or try again.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send Appointment Request →';
+      alert('Something went wrong. Please call us at 617.734.0003 or try again.');
+    }
   });
 
   (function() {
