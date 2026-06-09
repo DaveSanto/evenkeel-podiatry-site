@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Apply — Medical Front Desk Assistant | EvenKeel Podiatry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f2d;
+      --navy-mid: #1a3347;
+      --teal: #2a7f7f;
+      --teal-light: #3a9e9e;
+      --teal-pale: #e8f5f5;
+      --sand: #f5f0e8;
+      --stone: #8a9ba8;
+      --text: #1a2a35;
+      --muted: #5a7080;
+      --white: #ffffff;
+      --border: #d8e4ea;
+      --green: #287a57;
+      --green-pale: #eaf5f0;
+      --red: #c00000;
+      --red-pale: #fdf0f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--sand);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV (minimal) ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13, 31, 45, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 68px;
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex; align-items: baseline; gap: 0;
+    }
+    .nav-logo-brand {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 400; font-size: 1.25rem;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .nav-logo-suffix {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300; font-size: 0.7rem;
+      color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+      margin-left: 0.4rem; text-transform: uppercase;
+      align-self: center;
+    }
+    .nav-hiring-badge {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      background: rgba(42,127,127,0.15);
+      border: 1px solid rgba(42,127,127,0.3);
+      border-radius: 4px; padding: 0.3rem 0.75rem;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--navy);
+      padding: 9rem 2rem 4.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 40% 60%, rgba(42,127,127,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-header-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .page-header-inner {
+      max-width: 740px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--teal-light); font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .page-eyebrow::before {
+      content: ''; display: block; width: 28px; height: 1px;
+      background: var(--teal-light);
+    }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--white); line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .page-header-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem; font-weight: 300;
+      line-height: 1.75; max-width: 540px;
+    }
+    .job-badges {
+      display: flex; flex-wrap: wrap; gap: 0.55rem;
+      margin-top: 1.75rem;
+    }
+    .job-badge {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 4px; padding: 0.35rem 0.85rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+    }
+    .job-badge strong { font-weight: 600; color: var(--white); }
+
+    /* ── MAIN SECTION ── */
+    .apply-section {
+      padding: 3.5rem 2rem 6rem;
+    }
+    .apply-inner { max-width: 740px; margin: 0 auto; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(13,31,45,0.06);
+      overflow: hidden;
+    }
+
+    /* ── FORM SECTION BLOCKS ── */
+    .form-section-block {
+      padding: 2.25rem 2.5rem;
+    }
+    .form-section-block + .form-section-block {
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--stone);
+      margin-bottom: 0.4rem;
+    }
+    .section-label-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; background: var(--teal-pale);
+      border-radius: 50%; font-size: 0.65rem; color: var(--teal);
+      font-weight: 700; flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FIELDS ── */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .form-group:last-child { margin-bottom: 0; }
+    label {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--stone);
+    }
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.7rem 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%; outline: none;
+      -webkit-appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(42,127,127,0.12);
+    }
+    input.field-error, select.field-error, textarea.field-error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(192,0,0,0.08);
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9ba8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+    .field-hint {
+      font-size: 0.78rem; color: var(--stone); line-height: 1.5;
+    }
+    .schedule-warning {
+      display: none;
+      background: var(--red-pale); border: 1px solid rgba(192,0,0,0.15);
+      border-radius: 6px; padding: 0.8rem 1rem;
+      font-size: 0.82rem; color: var(--red); line-height: 1.55;
+      margin-top: 0.5rem;
+    }
+    .schedule-warning.visible { display: block; }
+
+    /* ── QUESTION BLOCKS ── */
+    .question-block { margin-bottom: 2rem; }
+    .question-block:last-child { margin-bottom: 0; }
+    .question-prompt {
+      font-size: 0.93rem; font-weight: 500; color: var(--navy);
+      line-height: 1.6; margin-bottom: 0.65rem;
+    }
+    .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; background: var(--teal-pale);
+      color: var(--teal); border-radius: 50%;
+      font-size: 0.7rem; font-weight: 700;
+      margin-right: 0.4rem; flex-shrink: 0;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    /* ── VIDEO UPLOAD ZONE ── */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: #fafcfc;
+      user-select: none;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--teal);
+      background: var(--teal-pale);
+    }
+    .upload-zone.has-file {
+      border-color: var(--teal);
+      background: var(--teal-pale);
+    }
+    .upload-zone.zone-error {
+      border-color: var(--red);
+      background: var(--red-pale);
+    }
+    .upload-zone-icon {
+      width: 48px; height: 48px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+      transition: border-color 0.2s;
+    }
+    .upload-zone:hover .upload-zone-icon,
+    .upload-zone.drag-over .upload-zone-icon,
+    .upload-zone.has-file .upload-zone-icon {
+      border-color: var(--teal);
+    }
+    .upload-zone-icon svg { width: 22px; height: 22px; stroke: var(--teal); }
+    .upload-zone-primary {
+      font-size: 0.9rem; font-weight: 500; color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .upload-zone-primary span {
+      color: var(--teal); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .upload-zone-hint { font-size: 0.78rem; color: var(--stone); }
+
+    .upload-file-row {
+      display: none; align-items: center; gap: 0.75rem;
+      background: var(--white); border: 1px solid var(--teal);
+      border-radius: 8px; padding: 0.85rem 1.1rem;
+      margin-top: 1rem; text-align: left;
+    }
+    .upload-file-row.visible { display: flex; }
+    .upload-file-icon {
+      width: 36px; height: 36px; background: var(--teal-pale);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .upload-file-icon svg { width: 16px; height: 16px; stroke: var(--teal); }
+    .upload-file-name {
+      font-size: 0.85rem; font-weight: 500; color: var(--navy);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0;
+    }
+    .upload-file-size { font-size: 0.78rem; color: var(--stone); white-space: nowrap; }
+    .upload-remove-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--stone); padding: 0.2rem; flex-shrink: 0;
+      transition: color 0.2s; line-height: 0;
+    }
+    .upload-remove-btn:hover { color: var(--red); }
+
+    .upload-progress { display: none; margin-top: 1rem; }
+    .upload-progress.visible { display: block; }
+    .upload-progress-header {
+      display: flex; justify-content: space-between;
+      font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem;
+    }
+    .upload-track {
+      width: 100%; height: 6px; background: var(--border);
+      border-radius: 3px; overflow: hidden;
+    }
+    .upload-fill {
+      height: 100%; background: var(--teal); border-radius: 3px;
+      transition: width 0.15s ease; width: 0%;
+    }
+
+    .upload-error-msg {
+      display: none; font-size: 0.82rem; color: var(--red);
+      margin-top: 0.6rem; line-height: 1.5;
+    }
+    .upload-error-msg.visible { display: block; }
+
+    /* ── SUBMIT AREA ── */
+    .form-submit-area {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--teal); color: var(--white);
+      padding: 1rem 2rem; border-radius: 6px;
+      border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--teal-light); transform: translateY(-1px); }
+    .btn-submit:active:not(:disabled) { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .form-legal {
+      font-size: 0.75rem; color: var(--stone);
+      text-align: center; margin-top: 1rem; line-height: 1.5;
+    }
+
+    /* ── SUCCESS ── */
+    .form-success {
+      display: none; text-align: center;
+      padding: 4rem 2.5rem;
+    }
+    .form-success.visible { display: block; }
+    .success-icon {
+      width: 64px; height: 64px; background: var(--green-pale);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 1.5rem;
+    }
+    .success-icon svg { width: 28px; height: 28px; stroke: var(--green); stroke-width: 2.5; }
+    .form-success h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem; color: var(--navy); margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      font-size: 0.92rem; color: var(--muted);
+      line-height: 1.8; max-width: 440px; margin: 0 auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.78rem; color: rgba(255,255,255,0.3); line-height: 1.7;
+    }
+    .footer-text a {
+      color: rgba(255,255,255,0.4); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-text a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .page-header { padding: 8rem 1.25rem 3rem; }
+      .apply-section { padding: 2.5rem 1.25rem 4rem; }
+      .form-section-block { padding: 1.75rem 1.5rem; }
+      .form-submit-area { padding: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-hiring-badge { display: none; }
+      .upload-zone { padding: 1.75rem 1.25rem; }
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header-inner > * { animation: fadeUp 0.6s ease both; }
+    .page-eyebrow { animation-delay: 0.05s; }
+    .page-header h1 { animation-delay: 0.15s; }
+    .page-header-sub { animation-delay: 0.25s; }
+    .job-badges { animation-delay: 0.35s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://evenkeelpodiatry.com" class="nav-logo">
+      <span class="nav-logo-brand">evenkeel</span>
+      <span class="nav-logo-suffix">Podiatry</span>
+    </a>
+    <span class="nav-hiring-badge">Now Hiring</span>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid-bg"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Job Application · EvenKeel Podiatry</div>
+    <h1>Medical Front Desk Assistant</h1>
+    <p class="page-header-sub">Part-time summer position in Brookline, MA. Fill out this short form and we'll review it personally — takes about 10 minutes.</p>
+    <div class="job-badges">
+      <div class="job-badge"><strong>$18–$20</strong> / hr</div>
+      <div class="job-badge"><strong>20–30 hrs</strong> / week</div>
+      <div class="job-badge">Tue – Thu &nbsp;8am – 5pm</div>
+      <div class="job-badge">1180 Beacon St · Brookline, MA</div>
+      <div class="job-badge">Summer 2025</div>
+    </div>
+  </div>
+</div>
+
+<!-- APPLY SECTION -->
+<section class="apply-section">
+  <div class="apply-inner">
+    <div class="form-card" id="formCard">
+
+      <!-- ─── SECTION 1: BASIC INFO ─── -->
+      <div class="form-section-block">
+        <div class="section-label">
+          <span class="section-label-num">1</span>
+          Basic Information
+        </div>
+        <div class="section-title">About You</div>
+
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Your full name" autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="617-555-0100" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="scheduleCore">Can you work Tue–Thu, 8am–5pm? *</label>
+            <select id="scheduleCore" name="scheduleCore">
+              <option value="">Select…</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <p class="field-hint">These days and hours are required for this role.</p>
+            <div class="schedule-warning" id="scheduleWarning">
+              These hours are required for this position. If your schedule doesn't allow Tue–Thu 8am–5pm, this role may not be the right fit at this time.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="scheduleMonday">Available for optional Mon shifts, 10am–2pm?</label>
+            <select id="scheduleMonday" name="scheduleMonday">
+              <option value="">Select…</option>
+              <option value="yes">Yes</option>
+              <option value="maybe">Maybe — depends on the week</option>
+              <option value="no">No</option>
+            </select>
+            <p class="field-hint">Not every week — occasional Mondays only.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SECTION 2: WRITTEN QUESTIONS ─── -->
+      <div class="form-section-block">
+        <div class="section-label">
+          <span class="section-label-num">2</span>
+          Written Questions
+        </div>
+        <div class="section-title">A Few Questions</div>
+        <p style="font-size:0.85rem; color:var(--muted); line-height:1.75; margin-bottom:1.75rem;">Two or three sentences is plenty. We're looking for genuine answers, not polished ones.</p>
+
+        <div class="question-block">
+          <p class="question-prompt">
+            <span class="q-num">1</span>
+            Why are you interested in this role at EvenKeel Podiatry? *
+          </p>
+          <div class="form-group">
+            <textarea id="q1" name="q1" placeholder="Tell us what draws you to this role…"></textarea>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <p class="question-prompt">
+            <span class="q-num">2</span>
+            Have you worked in a medical or healthcare setting before? If yes, briefly describe what you did. *
+          </p>
+          <div class="form-group">
+            <textarea id="q2" name="q2" placeholder="No prior medical experience is fine — just tell us about your background…"></textarea>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <p class="question-prompt">
+            <span class="q-num">3</span>
+            Tell us about your experience with computers and software. Have you used email, file attachments, or any medical software or data-entry systems? How comfortable are you learning new software? *
+          </p>
+          <div class="form-group">
+            <textarea id="q3" name="q3" placeholder="Be as specific or general as fits your background…"></textarea>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <p class="question-prompt">
+            <span class="q-num">4</span>
+            Have you done any improv, theater, public speaking, or other experience that required you to make conversation with people you don't know? Tell us about a time you had to think on your feet. *
+          </p>
+          <div class="form-group" style="margin-bottom:0;">
+            <textarea id="q4" name="q4" placeholder="Could be a job, a class, a situation — whatever comes to mind…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SECTION 3: VIDEO UPLOAD ─── -->
+      <div class="form-section-block">
+        <div class="section-label">
+          <span class="section-label-num">3</span>
+          Video Introduction
+        </div>
+        <div class="section-title">30-Second Video</div>
+        <p style="font-size:0.85rem; color:var(--muted); line-height:1.75; margin-bottom:1.5rem;">
+          Record a short video — 30 seconds to 1 minute — and upload it here. Tell us your name, a little about yourself, and why you're interested in this role. Just be yourself. We don't need perfection; we just want to get a sense of who you are.
+        </p>
+
+        <!-- Hidden file input -->
+        <input type="file" id="videoFile" name="videoFile" accept="video/*" style="display:none;">
+
+        <!-- Drag-drop zone -->
+        <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload video">
+          <div class="upload-zone-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14"/>
+              <rect x="3" y="6" width="12" height="12" rx="2"/>
+            </svg>
+          </div>
+          <div class="upload-zone-primary"><span>Choose a video</span> or drag it here</div>
+          <div class="upload-zone-hint">MP4, MOV, or WebM &nbsp;·&nbsp; max 100 MB</div>
+        </div>
+
+        <!-- Selected file row -->
+        <div class="upload-file-row" id="fileRow">
+          <div class="upload-file-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14"/>
+              <rect x="3" y="6" width="12" height="12" rx="2"/>
+            </svg>
+          </div>
+          <span class="upload-file-name" id="fileName">—</span>
+          <span class="upload-file-size" id="fileSize"></span>
+          <button type="button" class="upload-remove-btn" id="removeFile" aria-label="Remove video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="upload-progress" id="uploadProgress">
+          <div class="upload-progress-header">
+            <span>Uploading video…</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="upload-track">
+            <div class="upload-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="upload-error-msg" id="uploadError"></div>
+      </div>
+
+      <!-- ─── SUBMIT ─── -->
+      <div class="form-submit-area">
+        <button type="button" id="submitBtn" class="btn-submit">Submit Application →</button>
+        <p class="form-legal">Your information is used only to evaluate your application for this position. Videos are stored securely.</p>
+      </div>
+
+      <!-- ─── SUCCESS ─── -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Application Received</h2>
+        <p>Thank you for applying to EvenKeel Podiatry. We review every application personally and will be in touch if we'd like to schedule a conversation.</p>
+      </div>
+
+    </div><!-- /form-card -->
+  </div><!-- /apply-inner -->
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-text">
+    © 2025 EvenKeel Podiatry &nbsp;·&nbsp; 1180 Beacon St, Suite 4D, Brookline MA 02446<br>
+    <a href="https://evenkeelpodiatry.com">evenkeelpodiatry.com</a>
+  </p>
+</footer>
+
+<script type="module">
+import { initializeApp }                                       from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getAuth, signInAnonymously }                          from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+import { getFirestore, collection, addDoc, serverTimestamp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey:            'AIzaSyCccy2tDT-tZxa_1gFJejjhGeBmVi9S5UE',
+  authDomain:        'evenkeelv5.firebaseapp.com',
+  projectId:         'evenkeelv5',
+  storageBucket:     'evenkeelv5.firebasestorage.app',
+  messagingSenderId: '846979170994',
+  appId:             '1:846979170994:web:48449676f49db431773fab',
+};
+// ─────────────────────────────────────────────────────────────────────────────
+
+const fbApp   = initializeApp(firebaseConfig);
+const auth    = getAuth(fbApp);
+const storage = getStorage(fbApp);
+const db      = getFirestore(fbApp);
+
+// ── Upload zone ───────────────────────────────────────────────────────────────
+
+const zone       = document.getElementById('uploadZone');
+const fileInput  = document.getElementById('videoFile');
+const fileRow    = document.getElementById('fileRow');
+const fileName   = document.getElementById('fileName');
+const fileSize   = document.getElementById('fileSize');
+const removeBtn  = document.getElementById('removeFile');
+const uploadErr  = document.getElementById('uploadError');
+
+function fmtBytes(n) {
+  return n < 1024 * 1024
+    ? (n / 1024).toFixed(1) + ' KB'
+    : (n / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+function applyFile(file) {
+  fileName.textContent = file.name;
+  fileSize.textContent = fmtBytes(file.size);
+  fileRow.classList.add('visible');
+  zone.classList.add('has-file');
+  zone.classList.remove('zone-error');
+  uploadErr.classList.remove('visible');
+  uploadErr.textContent = '';
+}
+
+function clearFile() {
+  fileInput.value = '';
+  fileRow.classList.remove('visible');
+  zone.classList.remove('has-file', 'zone-error');
+  uploadErr.classList.remove('visible');
+  uploadErr.textContent = '';
+}
+
+function validateAndApply(file) {
+  if (!file) return;
+  if (!file.type.startsWith('video/')) {
+    zone.classList.add('zone-error');
+    uploadErr.textContent = 'Please upload a video file (MP4, MOV, or WebM).';
+    uploadErr.classList.add('visible');
+    return;
+  }
+  if (file.size > 100 * 1024 * 1024) {
+    zone.classList.add('zone-error');
+    uploadErr.textContent = 'That file is over 100 MB. Please trim or compress your video before uploading.';
+    uploadErr.classList.add('visible');
+    return;
+  }
+  applyFile(file);
+}
+
+// Click to open file dialog
+zone.addEventListener('click', () => fileInput.click());
+zone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+
+// File input change (click-to-select)
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if (file) validateAndApply(file);
+});
+
+// Remove button
+removeBtn.addEventListener('click', e => { e.stopPropagation(); clearFile(); });
+
+// Drag and drop
+zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+zone.addEventListener('dragleave', e => { if (!zone.contains(e.relatedTarget)) zone.classList.remove('drag-over'); });
+zone.addEventListener('drop', e => {
+  e.preventDefault();
+  zone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) {
+    // Sync to input for form access
+    try {
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      fileInput.files = dt.files;
+    } catch (_) {}
+    validateAndApply(file);
+  }
+});
+
+// ── Schedule warning ──────────────────────────────────────────────────────────
+
+document.getElementById('scheduleCore').addEventListener('change', function () {
+  const warn = document.getElementById('scheduleWarning');
+  warn.classList.toggle('visible', this.value === 'no');
+});
+
+// ── Form submission ───────────────────────────────────────────────────────────
+
+const submitBtn      = document.getElementById('submitBtn');
+const progressWrap   = document.getElementById('uploadProgress');
+const progressFill   = document.getElementById('progressFill');
+const progressPct    = document.getElementById('progressPct');
+const formSuccess    = document.getElementById('formSuccess');
+const formCard       = document.getElementById('formCard');
+
+function val(id) { return (document.getElementById(id)?.value ?? '').trim(); }
+
+function markFieldError(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('field-error');
+  el.addEventListener('input', () => el.classList.remove('field-error'), { once: true });
+  el.addEventListener('change', () => el.classList.remove('field-error'), { once: true });
+}
+
+submitBtn.addEventListener('click', async () => {
+  // ── Validation ──
+  const required = ['fullName', 'email', 'phone', 'scheduleCore', 'q1', 'q2', 'q3', 'q4'];
+  let ok = true;
+  for (const id of required) {
+    if (!val(id)) { markFieldError(id); ok = false; }
+  }
+  const videoFile = fileInput.files[0];
+  if (!videoFile) {
+    zone.classList.add('zone-error');
+    uploadErr.textContent = 'Please attach a video before submitting.';
+    uploadErr.classList.add('visible');
+    ok = false;
+  }
+  if (!ok) {
+    const first = formCard.querySelector('.field-error, .zone-error');
+    first?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Uploading video…';
+
+  try {
+    // 1. Anonymous auth (required by storage rules)
+    await signInAnonymously(auth);
+
+    // 2. Upload video to Firebase Storage
+    const ext      = videoFile.name.split('.').pop() || 'mp4';
+    const safeName = val('fullName').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    const path     = `interviewApplications/${Date.now()}_${safeName}/video.${ext}`;
+    const videoRef = sRef(storage, path);
+    const task     = uploadBytesResumable(videoRef, videoFile);
+
+    progressWrap.classList.add('visible');
+
+    const videoUrl = await new Promise((resolve, reject) => {
+      task.on(
+        'state_changed',
+        snap => {
+          const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+          progressFill.style.width = pct + '%';
+          progressPct.textContent  = pct + '%';
+        },
+        reject,
+        async () => resolve(await getDownloadURL(task.snapshot.ref))
+      );
+    });
+
+    submitBtn.textContent = 'Saving…';
+
+    // 3. Write to Firestore
+    await addDoc(collection(db, 'interviewApplications'), {
+      submittedAt:     serverTimestamp(),
+      fullName:        val('fullName'),
+      email:           val('email'),
+      phone:           val('phone'),
+      scheduleCore:    val('scheduleCore'),
+      scheduleMonday:  val('scheduleMonday') || '',
+      q1:              val('q1'),
+      q2:              val('q2'),
+      q3:              val('q3'),
+      q4:              val('q4'),
+      videoUrl,
+      videoPath:       path,
+    });
+
+    // 4. Email notification via Web3Forms
+    const fd = new FormData();
+    fd.append('access_key',         '3ce3423c-ea79-40eb-8367-e00c84c93cab');
+    fd.append('subject',            'New Job Application — ' + val('fullName'));
+    fd.append('from_name',          'EvenKeel Interview Form');
+    fd.append('name',               val('fullName'));
+    fd.append('email',              val('email'));
+    fd.append('phone',              val('phone'));
+    fd.append('schedule_tue_thu',   val('scheduleCore'));
+    fd.append('schedule_monday',    val('scheduleMonday') || '(not answered)');
+    fd.append('q1_interest',        val('q1'));
+    fd.append('q2_healthcare_bg',   val('q2'));
+    fd.append('q3_tech',            val('q3'));
+    fd.append('q4_personality',     val('q4'));
+    fd.append('video_url',          videoUrl);
+    await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+
+    // 5. Show success state
+    formCard.querySelectorAll('.form-section-block, .form-submit-area').forEach(el => {
+      el.style.display = 'none';
+    });
+    formSuccess.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (err) {
+    console.error('Submission error:', err);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Application →';
+    alert('Something went wrong while submitting your application. Please try again, or email us at info@evenkeelpodiatry.com.');
+  }
+});
+</script>
+
+</body>
+</html>
