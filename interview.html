@@ -804,7 +804,7 @@ submitBtn.addEventListener('click', async () => {
           progressPct.textContent  = pct + '%';
         },
         reject,
-        async () => resolve(await getDownloadURL(task.snapshot.ref))
+        async () => { try { resolve(await getDownloadURL(task.snapshot.ref)); } catch (err) { reject(err); } }
       );
     });
 
