@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | EvenKeel Podiatry</title>
+  <meta name="description" content="Join the team at EvenKeel Podiatry in Brookline, MA. View current job openings at our practice." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f2d;
+      --navy-mid: #1a3347;
+      --teal: #2a7f7f;
+      --teal-light: #3a9e9e;
+      --teal-pale: #e8f5f5;
+      --sand: #f5f0e8;
+      --stone: #8a9ba8;
+      --text: #1a2a35;
+      --muted: #5a7080;
+      --white: #ffffff;
+      --border: #d8e4ea;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13, 31, 45, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 68px;
+    }
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem; color: var(--white);
+      text-decoration: none; letter-spacing: 0.01em;
+      display: flex; align-items: baseline; gap: 0;
+    }
+    .nav-logo-brand {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 400; font-size: 1.25rem;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .nav-logo-suffix {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300; font-size: 0.7rem;
+      color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+      margin-left: 0.4rem; text-transform: uppercase;
+      align-self: center;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.72); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--teal); color: var(--white) !important;
+      padding: 0.5rem 1.25rem; border-radius: 4px;
+      font-weight: 600 !important; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .nav-hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      padding: 0.4rem; color: var(--white); flex-shrink: 0;
+    }
+    .nav-hamburger svg { display: block; }
+    .nav-mobile {
+      display: none;
+      position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+      background: rgba(13,31,45,0.98);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; }
+    .nav-mobile li a {
+      display: block;
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 1rem; font-weight: 500;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: color 0.2s;
+    }
+    .nav-mobile li:last-child a { border-bottom: none; }
+    .nav-mobile li a:hover { color: var(--white); }
+    .nav-mobile .nav-cta {
+      margin-top: 1rem;
+      background: var(--teal); color: var(--white) !important;
+      text-align: center; border-radius: 4px;
+      padding: 0.9rem !important; font-weight: 600 !important;
+      border-bottom: none !important; display: block;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--navy);
+      padding: 9rem 2rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(42,127,127,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-header-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .page-header-inner {
+      max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--teal-light); font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .page-eyebrow::before {
+      content: ''; display: block; width: 28px; height: 1px;
+      background: var(--teal-light);
+    }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--white); line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .page-header-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem; font-weight: 300;
+      max-width: 520px; line-height: 1.7;
+    }
+
+    /* ── JOBS SECTION ── */
+    .jobs-section {
+      padding: 5rem 2rem 6rem;
+      background: var(--white);
+    }
+    .jobs-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .jobs-header {
+      margin-bottom: 2.5rem;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .jobs-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .jobs-header p {
+      font-size: 0.95rem; color: var(--muted);
+      line-height: 1.75; font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* ── JOB CARDS ── */
+    .job-list {
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .job-card {
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 2rem 2.25rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      background: var(--white);
+    }
+    .job-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 24px rgba(42,127,127,0.1);
+    }
+    .job-card-body { flex: 1; min-width: 0; }
+    .job-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .job-card-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .job-tag {
+      background: var(--teal-pale); color: var(--teal);
+      border-radius: 4px; padding: 0.2rem 0.65rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .job-tag.neutral {
+      background: var(--sand); color: var(--muted);
+    }
+    .job-card-desc {
+      font-size: 0.875rem; color: var(--muted); line-height: 1.65;
+    }
+    .job-card-arrow {
+      width: 44px; height: 44px; background: var(--teal-pale);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .job-card:hover .job-card-arrow { background: var(--teal); }
+    .job-card-arrow svg { width: 18px; height: 18px; stroke: var(--teal); transition: stroke 0.2s; }
+    .job-card:hover .job-card-arrow svg { stroke: var(--white); }
+
+    /* ── EMPTY STATE (when no openings) ── */
+    .no-openings {
+      display: none; /* show this by removing display:none when no jobs are listed */
+      text-align: center; padding: 4rem 2rem;
+      border: 1px dashed var(--border); border-radius: 10px;
+      color: var(--stone);
+    }
+    .no-openings p { font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── CULTURE BAND ── */
+    .culture-band {
+      background: var(--sand);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+    .culture-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .culture-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .culture-icon {
+      width: 42px; height: 42px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .culture-icon svg { width: 20px; height: 20px; stroke: var(--teal); }
+    .culture-item-title { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .culture-item-desc { font-size: 0.825rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-brand-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .footer-brand-name .suffix {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300; font-size: 0.65rem;
+      color: rgba(255,255,255,0.45); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-links li { color: rgba(255,255,255,0.55); font-size: 0.82rem; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .culture-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .job-card { flex-direction: column; align-items: flex-start; }
+      .job-card-arrow { display: none; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header { padding: 8rem 1.25rem 3.5rem; }
+      .jobs-section { padding: 3rem 1.25rem 4rem; }
+      .culture-band { padding: 2.5rem 1.25rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header-inner > * { animation: fadeUp 0.65s ease both; }
+    .page-eyebrow { animation-delay: 0.1s; }
+    .page-header h1 { animation-delay: 0.2s; }
+    .page-header-sub { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">evenkeel</span>
+      <span class="nav-logo-suffix">Podiatry</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#orthotics">Orthotics</a></li>
+      <li><a href="index.html#doctor">Dr. Santopietro</a></li>
+      <li><a href="index.html#testimonials">Reviews</a></li>
+      <li><a href="index.html#location">Location</a></li>
+      <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileMenu">
+  <ul>
+    <li><a href="index.html#services" class="mobile-link">Services</a></li>
+    <li><a href="index.html#orthotics" class="mobile-link">Orthotics</a></li>
+    <li><a href="index.html#doctor" class="mobile-link">Dr. Santopietro</a></li>
+    <li><a href="index.html#testimonials" class="mobile-link">Reviews</a></li>
+    <li><a href="index.html#location" class="mobile-link">Location</a></li>
+    <li><a href="appointments.html" class="nav-cta mobile-link">Book Appointment</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid-bg"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Careers · EvenKeel Podiatry</div>
+    <h1>Join Our Team</h1>
+    <p class="page-header-sub">We're a small, close-knit practice in Brookline. If you care about patients and want to do meaningful work, we'd love to hear from you.</p>
+  </div>
+</div>
+
+<!-- JOB LISTINGS -->
+<section class="jobs-section">
+  <div class="jobs-inner">
+    <div class="jobs-header">
+      <div class="section-eyebrow">Open Positions</div>
+      <h2>Current Openings</h2>
+      <p>We hire carefully and treat our staff well. Below are the roles we're actively filling — click any listing to learn more and apply.</p>
+    </div>
+
+    <div class="job-list">
+
+      <a href="interview.html" class="job-card">
+        <div class="job-card-body">
+          <div class="job-card-title">Medical Front Desk Assistant</div>
+          <div class="job-card-meta">
+            <span class="job-tag">Now Hiring</span>
+            <span class="job-tag neutral">Part-Time</span>
+            <span class="job-tag neutral">Brookline, MA</span>
+            <span class="job-tag neutral">$18–$20 / hr</span>
+          </div>
+          <p class="job-card-desc">Tue–Thu 8am–5pm · 20–30 hrs/week. Patient intake, scheduling, document scanning, and front desk support for a busy podiatry practice.</p>
+        </div>
+        <div class="job-card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Future listings go here. Example structure:
+      <a href="[application-page].html" class="job-card">
+        <div class="job-card-body">
+          <div class="job-card-title">Podiatrist</div>
+          <div class="job-card-meta">
+            <span class="job-tag">Now Hiring</span>
+            <span class="job-tag neutral">Full-Time</span>
+            <span class="job-tag neutral">Brookline, MA</span>
+          </div>
+          <p class="job-card-desc">Brief description of the role.</p>
+        </div>
+        <div class="job-card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE BAND -->
+<div class="culture-band">
+  <div class="culture-inner">
+    <div class="culture-item">
+      <div class="culture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div>
+        <div class="culture-item-title">Small Team, Real Impact</div>
+        <div class="culture-item-desc">You won't get lost here. Everyone on staff plays a meaningful role in the patient experience, and it shows.</div>
+      </div>
+    </div>
+    <div class="culture-item">
+      <div class="culture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="culture-item-title">50 Years of Excellence</div>
+        <div class="culture-item-desc">Dr. Santopietro has been practicing since 1974. This is a practice with deep roots and a strong reputation in Greater Boston.</div>
+      </div>
+    </div>
+    <div class="culture-item">
+      <div class="culture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <div class="culture-item-title">Reasonable Hours</div>
+        <div class="culture-item-desc">We see patients Tuesday through Thursday. Predictable schedules, no evenings, no weekends.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">evenkeel<span class="suffix">Podiatry</span></div>
+      <p class="footer-desc">Boston podiatrist Dr. Frank J. Santopietro, D.P.M. — custom orthotics and sports medicine serving Greater Boston since 1974.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="index.html#orthotics">Custom Orthotics</a></li>
+        <li><a href="index.html#services">Sports Medicine</a></li>
+        <li><a href="index.html#services">Diabetic Foot Care</a></li>
+        <li><a href="index.html#services">Pediatric Podiatry</a></li>
+        <li><a href="index.html#services">Surgical Options</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice</div>
+      <ul class="footer-links">
+        <li><a href="index.html#doctor">About Dr. Santopietro</a></li>
+        <li><a href="index.html#services">Our Process</a></li>
+        <li><a href="index.html#testimonials">Patient Testimonials</a></li>
+        <li><a href="#">News &amp; Resources</a></li>
+        <li><a href="https://www.yourhealthfile.com/portal/login.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:6177340003">617.734.0003</a></li>
+        <li>Fax: 617.734.0683</li>
+        <li><a href="appointments.html">Request Appointment</a></li>
+        <li><a href="https://maps.google.com/?q=1180+Beacon+St+Brookline+MA" target="_blank">Get Directions</a></li>
+        <li><a href="careers.html">Join Our Team</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-bottom">
+      <span>© 2025 EvenKeel Podiatry. All rights reserved.</span>
+      <span>1180 Beacon St, Suite 4D · Brookline, MA 02446</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('iconOpen');
+    var iconClose = document.getElementById('iconClose');
+    var links = menu.querySelectorAll('.mobile-link');
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      iconOpen.style.display = '';
+      iconClose.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      iconOpen.style.display = isOpen ? 'none' : '';
+      iconClose.style.display = isOpen ? '' : 'none';
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    links.forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+
+</body>
+</html>
