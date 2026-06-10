@@ -429,7 +429,7 @@
   <div class="page-header-inner">
     <div class="page-eyebrow">Job Application · EvenKeel Podiatry</div>
     <h1>Medical Front Desk Assistant</h1>
-    <p class="page-header-sub">Part-time summer position in Brookline, MA. Fill out this short form and we'll review it personally — takes about 10 minutes.</p>
+    <p class="page-header-sub">Part-time position in Brookline, MA. Fill out this short form and we'll review it personally — takes about 10 minutes.</p>
     <div class="job-badges">
       <div class="job-badge"><strong>$18–$20</strong> / hr</div>
       <div class="job-badge"><strong>20–30 hrs</strong> / week</div>
@@ -615,7 +615,7 @@
           <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h2>Application Received</h2>
-        <p>Thank you for applying to EvenKeel Podiatry. We review every application personally and will be in touch if we'd like to schedule a conversation.</p>
+        <p>Thank you for applying to EvenKeel Podiatry. We review every application personally and will be in touch if we'd like to schedule a conversation.<br><br>If you don't hear from us within 48 hours, feel free to follow up at <a href="mailto:info@evenkeelpodiatry.com" style="color:var(--teal);text-decoration:none;font-weight:500;">info@evenkeelpodiatry.com</a>.</p>
       </div>
 
     </div><!-- /form-card -->
@@ -828,9 +828,10 @@ submitBtn.addEventListener('click', async () => {
 
     // 4. Email notification via Web3Forms
     const fd = new FormData();
-    fd.append('access_key',         '3ce3423c-ea79-40eb-8367-e00c84c93cab');
+    fd.append('access_key',         'f083542d-31d7-4cd4-8aa6-e1c0605281cb');
     fd.append('subject',            'New Job Application — ' + val('fullName'));
     fd.append('from_name',          'EvenKeel Interview Form');
+    fd.append('replyto',            val('email'));
     fd.append('name',               val('fullName'));
     fd.append('email',              val('email'));
     fd.append('phone',              val('phone'));
@@ -841,7 +842,9 @@ submitBtn.addEventListener('click', async () => {
     fd.append('q3_tech',            val('q3'));
     fd.append('q4_personality',     val('q4'));
     fd.append('video_url',          videoUrl);
-    await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+    const w3res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+    const w3data = await w3res.json();
+    console.log('Web3Forms response:', w3data);
 
     // 5. Show success state
     formCard.querySelectorAll('.form-section-block, .form-submit-area').forEach(el => {
