@@ -842,7 +842,6 @@ submitBtn.addEventListener('click', async () => {
     fd.append('q2_healthcare_bg',   val('q2'));
     fd.append('q3_tech',            val('q3'));
     fd.append('q4_personality',     val('q4'));
-    fd.append('video_url',          videoUrl);
     const w3res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
     const w3data = await w3res.json();
     console.log('Web3Forms response:', w3data);
